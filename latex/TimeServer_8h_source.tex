@@ -1,0 +1,76 @@
+\hypertarget{TimeServer_8h_source}{}\doxysection{Time\+Server.\+h}
+\label{TimeServer_8h_source}\index{src/TimeServer.h@{src/TimeServer.h}}
+\mbox{\hyperlink{TimeServer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{comment}{// Comments from CISST library}}
+\DoxyCodeLine{13 \textcolor{comment}{// Class for relative time}}
+\DoxyCodeLine{14 \textcolor{comment}{//  The osaRelativeTime class is used to manage the relationship between relative}}
+\DoxyCodeLine{15 \textcolor{comment}{//  and absolute time. Specifically, the GetRelativeTime method returns the number}}
+\DoxyCodeLine{16 \textcolor{comment}{//  of seconds that have elapsed since the time origin was set (via a call to}}
+\DoxyCodeLine{17 \textcolor{comment}{//  SetTimeOrigin).}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{//  Although it might seem possible to implement this class without OS dependencies}}
+\DoxyCodeLine{20 \textcolor{comment}{//  (e.g., by using osaGetAbsoluteTime), this is problematic on some platforms, such}}
+\DoxyCodeLine{21 \textcolor{comment}{//  as Windows, where it is necessary to synchronize multiple time sources to get}}
+\DoxyCodeLine{22 \textcolor{comment}{//  a high resolution time that is relative to an absolute time.  Also, even on}}
+\DoxyCodeLine{23 \textcolor{comment}{//  non-\/Windows platforms, it would not have been as efficient because the}}
+\DoxyCodeLine{24 \textcolor{comment}{//  native (OS-\/specific) "{}absolute time"{} structure would have to converted}}
+\DoxyCodeLine{25 \textcolor{comment}{//  to an osaAbsoluteTime structure for every call to GetRelativeTime.}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{//  This class has significant overlap with osaStopwatch.}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#ifndef TIMESERVER\_H}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define TIMESERVER\_H}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include <sys/time.h>}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include <unistd.h>}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{const} \textcolor{keywordtype}{double} cmn\_s = 1.0;}
+\DoxyCodeLine{39 \textcolor{keyword}{const} \textcolor{keywordtype}{double} cmn\_ms = cmn\_s / 1000.0;}
+\DoxyCodeLine{40 \textcolor{keyword}{const} \textcolor{keywordtype}{double} cmn\_us = cmn\_ms / 1000.0;}
+\DoxyCodeLine{41 \textcolor{keyword}{const} \textcolor{keywordtype}{double} cmn\_ns = cmn\_us / 1000.0;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{struct }\mbox{\hyperlink{structAbsoluteTime}{AbsoluteTime}} \{}
+\DoxyCodeLine{44     \textcolor{keywordtype}{long} sec;   \textcolor{comment}{// seconds}}
+\DoxyCodeLine{45     \textcolor{keywordtype}{long} nsec;  \textcolor{comment}{// nano-\/seconds}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \mbox{\hyperlink{structAbsoluteTime}{AbsoluteTime}}() : sec(0L), nsec(0L) \{\}}
+\DoxyCodeLine{48     \mbox{\hyperlink{structAbsoluteTime}{AbsoluteTime}}(\textcolor{keywordtype}{long} seconds, \textcolor{keywordtype}{long} nanoseconds) : sec(seconds), nsec(nanoseconds) \{\}}
+\DoxyCodeLine{49     \mbox{\hyperlink{structAbsoluteTime}{\string~AbsoluteTime}}() \{\}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{double} \mbox{\hyperlink{structAbsoluteTime_a3fc691bb0ce6823769d9cde6d23f0de9}{ToSeconds}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{structAbsoluteTime_ab121ae5b23af0a7866eb5132b37a9421}{FromSeconds}}(\textcolor{keywordtype}{double} timeInSeconds);}
+\DoxyCodeLine{56 \};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{class }\mbox{\hyperlink{classTimeServer}{TimeServer}}}
+\DoxyCodeLine{59 \{}
+\DoxyCodeLine{60     \textcolor{keyword}{struct }timespec TimeOrigin;}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{public}:}
+\DoxyCodeLine{64     \mbox{\hyperlink{classTimeServer_ac30689d3305fff4b2edd1fa1c5205ebf}{TimeServer}}();}
+\DoxyCodeLine{66     \mbox{\hyperlink{classTimeServer_a70ec2ecb9899c0a71170ddc64b5d92b2}{\string~TimeServer}}();}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{classTimeServer_a193dfb0e9be81618946ab2ffaa334e42}{SetTimeOrigin}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classTimeServer_a6d3a8de1f2db8c7640496c183be9cc8f}{GetTimeOrigin}}(\mbox{\hyperlink{structAbsoluteTime}{AbsoluteTime}} \& origin) \textcolor{keyword}{const};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{80     \textcolor{keywordtype}{double} \mbox{\hyperlink{classTimeServer_a590429882efc4fd4cbeeac5f8045847a}{GetRelativeTime}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{double} \mbox{\hyperlink{classTimeServer_aafc39a8c618c87fe3ca9a6684d088379}{GetAbsoluteTimeInSeconds}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{88     \mbox{\hyperlink{structAbsoluteTime}{AbsoluteTime}} \mbox{\hyperlink{classTimeServer_ac35c58600bc0f734b0426345787740ad}{GetAbsoluteTime}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{classTimeServer_af1c64ff4e83838fb04da921c214d6887}{RelativeToAbsolute}}(\textcolor{keywordtype}{double} relative, \mbox{\hyperlink{structAbsoluteTime}{AbsoluteTime}} \& absolute) \textcolor{keyword}{const};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{102     \textcolor{keywordtype}{double} \mbox{\hyperlink{classTimeServer_aad88d847c2a5828bc77cb80f88dc837f}{AbsoluteToRelative}}(\textcolor{keyword}{const} \mbox{\hyperlink{structAbsoluteTime}{AbsoluteTime}} \& absolute) \textcolor{keyword}{const};}
+\DoxyCodeLine{103 \};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TIMESERVER\_H}}
+\DoxyCodeLine{106 }
+
+\end{DoxyCode}

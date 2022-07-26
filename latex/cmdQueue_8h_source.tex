@@ -1,0 +1,164 @@
+\hypertarget{cmdQueue_8h_source}{}\doxysection{cmd\+Queue.\+h}
+\label{cmdQueue_8h_source}\index{src/cmdQueue.h@{src/cmdQueue.h}}
+\mbox{\hyperlink{cmdQueue_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef CMDQUEUE\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define CMDQUEUE\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{//\#include <cisstMultiTask/mtsGenericObjectProxy.h>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <cstddef>}      \textcolor{comment}{// ptrdiff\_t}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <stddef.h>}     \textcolor{comment}{// size\_t}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <atomic>}       \textcolor{comment}{// atomic pointer update}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{template}<\textcolor{keyword}{class} \_elementType>}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classcmdQueue}{cmdQueue}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \textcolor{keyword}{typedef} \_elementType value\_type;}
+\DoxyCodeLine{34     \textcolor{keyword}{typedef} value\_type * pointer;}
+\DoxyCodeLine{35     \textcolor{keyword}{typedef} std::atomic<value\_type*> atomicPointer;}
+\DoxyCodeLine{36     \textcolor{keyword}{typedef} \textcolor{keyword}{const} value\_type * const\_pointer;}
+\DoxyCodeLine{37     \textcolor{keyword}{typedef} value\_type \& reference;}
+\DoxyCodeLine{38     \textcolor{keyword}{typedef} \textcolor{keyword}{const} value\_type \& const\_reference;}
+\DoxyCodeLine{39     \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t} size\_type;}
+\DoxyCodeLine{40     \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t} index\_type;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{43     pointer Data;}
+\DoxyCodeLine{44     atomicPointer Head;}
+\DoxyCodeLine{45     atomicPointer Tail;}
+\DoxyCodeLine{46     pointer Sentinel;  \textcolor{comment}{// end marker}}
+\DoxyCodeLine{47     size\_type Size;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{comment}{// private method, can only be used once by constructor.  Doesn't support resize!}}
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} Allocate(size\_type size, const\_reference value) \{}
+\DoxyCodeLine{51         this-\/>Size = size;}
+\DoxyCodeLine{52         \textcolor{keywordflow}{if} (this-\/>Size > 0) \{}
+\DoxyCodeLine{53             this-\/>Data = \textcolor{keyword}{new} value\_type[this-\/>Size];}
+\DoxyCodeLine{54             index\_type index;}
+\DoxyCodeLine{55             \textcolor{comment}{// CKim -\/ new(ptr) MyClass() : Construct a new MyClass at ptr}}
+\DoxyCodeLine{56             \textcolor{keywordflow}{for} (index = 0; index < this-\/>Size; index++) \{}
+\DoxyCodeLine{57                 \textcolor{keyword}{new}(\&this-\/>Data[index]) value\_type(value);}
+\DoxyCodeLine{58             \}}
+\DoxyCodeLine{59         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{60             this-\/>Data = 0;}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62         \textcolor{comment}{// head == tail implies empty queue}}
+\DoxyCodeLine{63         this-\/>Head = this-\/>Data;}
+\DoxyCodeLine{64         this-\/>Tail = this-\/>Data;}
+\DoxyCodeLine{65         this-\/>Sentinel = this-\/>Data + this-\/>Size;}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{public}:}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keyword}{inline} \mbox{\hyperlink{classcmdQueue}{cmdQueue}}(\textcolor{keywordtype}{void}):}
+\DoxyCodeLine{71         Data(0),}
+\DoxyCodeLine{72         Head(0),}
+\DoxyCodeLine{73         Tail(0),}
+\DoxyCodeLine{74         Sentinel(0),}
+\DoxyCodeLine{75         Size(0)}
+\DoxyCodeLine{76     \{\}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keyword}{inline} \mbox{\hyperlink{classcmdQueue}{cmdQueue}}(size\_type size, const\_reference value) \{}
+\DoxyCodeLine{80         Allocate(size, value);}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{keyword}{inline} \mbox{\hyperlink{classcmdQueue}{\string~cmdQueue}}() \{}
+\DoxyCodeLine{85         \textcolor{keyword}{delete} [] Data;}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 }
+\DoxyCodeLine{91     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classcmdQueue_aadf23e9a7992937649be041f2dff0649}{SetSize}}(size\_type size, const\_reference value) \{}
+\DoxyCodeLine{92         \textcolor{keyword}{delete} [] Data;}
+\DoxyCodeLine{93         this-\/>Allocate(size, value);}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 }
+\DoxyCodeLine{98     \textcolor{keyword}{inline} size\_type \mbox{\hyperlink{classcmdQueue_a5b20e8236f316838d79c7a0cf6cd089e}{GetSize}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{99         \textcolor{keywordflow}{return} Size;}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 }
+\DoxyCodeLine{105     \textcolor{keyword}{inline} size\_type \mbox{\hyperlink{classcmdQueue_ae8cb270fa8376eb07232586d256230ad}{GetAvailable}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const}}
+\DoxyCodeLine{106 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{107         ptrdiff\_t available = Head -\/ Tail;}
+\DoxyCodeLine{108         \textcolor{keywordflow}{if} (available < 0) \{}
+\DoxyCodeLine{109             available += Size;}
+\DoxyCodeLine{110         \}}
+\DoxyCodeLine{111         \textcolor{keywordflow}{return} available;}
+\DoxyCodeLine{112     \}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     }
+\DoxyCodeLine{116     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classcmdQueue_a01c9efc30d4cd1d03b4825d4035e15d9}{IsFull}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{117         pointer oneAfterHead = this-\/>Head + 1;}
+\DoxyCodeLine{118         \textcolor{keywordflow}{if} (oneAfterHead >= this-\/>Sentinel) \{}
+\DoxyCodeLine{119             oneAfterHead = this-\/>Data;}
+\DoxyCodeLine{120         \}}
+\DoxyCodeLine{121         \textcolor{keywordflow}{return} oneAfterHead == this-\/>Tail;}
+\DoxyCodeLine{122     \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 }
+\DoxyCodeLine{126     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classcmdQueue_a05e030292bdcb52037b5311a47ecbbb9}{IsEmpty}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} Head == Tail;}
+\DoxyCodeLine{128     \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 }
+\DoxyCodeLine{135     \textcolor{keyword}{inline} const\_pointer \mbox{\hyperlink{classcmdQueue_a49c35f031391a93b0ce86d30ac621b2d}{Put}}(const\_reference newObject)}
+\DoxyCodeLine{136     \{}
+\DoxyCodeLine{137         pointer newHead = this-\/>Head + 1;}
+\DoxyCodeLine{138         \textcolor{comment}{// test if end of buffer (same as IsFull method)}}
+\DoxyCodeLine{139         \textcolor{keywordflow}{if} (newHead >= this-\/>Sentinel) \{}
+\DoxyCodeLine{140             newHead = this-\/>Data;}
+\DoxyCodeLine{141         \}}
+\DoxyCodeLine{142         \textcolor{comment}{// test if full}}
+\DoxyCodeLine{143         \textcolor{keywordflow}{if} (newHead == this-\/>Tail) \{}
+\DoxyCodeLine{144             \textcolor{keywordflow}{return} 0;    \textcolor{comment}{// queue full}}
+\DoxyCodeLine{145         \}}
+\DoxyCodeLine{146         \textcolor{comment}{// Queue new object and move head}}
+\DoxyCodeLine{147         \textcolor{comment}{// CKim -\/ Put new object at the head. Called from the writer thread}}
+\DoxyCodeLine{148         \textcolor{comment}{// Dereferencing atomic pointer is not atomic and also copy operation of}}
+\DoxyCodeLine{149         \textcolor{comment}{// the newObject may not be atomic. So reading thread may interrupt but}}
+\DoxyCodeLine{150         \textcolor{comment}{// the reading thread will be accessing 'Tail'}}
+\DoxyCodeLine{151         *(this-\/>Head) = newObject;}
+\DoxyCodeLine{152         \textcolor{comment}{// CKim -\/ Storing address to atomic pointer is an atomic operation}}
+\DoxyCodeLine{153         this-\/>Head.store(newHead);}
+\DoxyCodeLine{154         \textcolor{keywordflow}{return} this-\/>Head;}
+\DoxyCodeLine{155     \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 }
+\DoxyCodeLine{162     \textcolor{keyword}{inline} pointer \mbox{\hyperlink{classcmdQueue_ac22faa5252cef195c6e1b8b23ddbb825}{Peek}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{163         \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classcmdQueue_a05e030292bdcb52037b5311a47ecbbb9}{IsEmpty}}()) \{}
+\DoxyCodeLine{164             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{165         \}}
+\DoxyCodeLine{166         \textcolor{keywordflow}{return} this-\/>Tail;}
+\DoxyCodeLine{167     \}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 }
+\DoxyCodeLine{173     \textcolor{keyword}{inline} const\_pointer \mbox{\hyperlink{classcmdQueue_a0764b3d2ce461ec1220fc66bae227820}{Get}}(\textcolor{keywordtype}{void}) \{}
+\DoxyCodeLine{174         \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classcmdQueue_a05e030292bdcb52037b5311a47ecbbb9}{IsEmpty}}()) \{}
+\DoxyCodeLine{175             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{176         \}}
+\DoxyCodeLine{177         \textcolor{comment}{// CKim -\/ Reading address from atomic pointer is an atomic operation}}
+\DoxyCodeLine{178         pointer result = this-\/>Tail.load();}
+\DoxyCodeLine{179         pointer newTail = this-\/>Tail +1;}
+\DoxyCodeLine{180         \textcolor{keywordflow}{if} (newTail >= this-\/>Sentinel) \{}
+\DoxyCodeLine{181             newTail = this-\/>Data;}
+\DoxyCodeLine{182         \}}
+\DoxyCodeLine{183         \textcolor{comment}{// CKim -\/ Storing address to atomic pointer is an atomic operation}}
+\DoxyCodeLine{184         this-\/>Tail.store(newTail);}
+\DoxyCodeLine{185         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{186     \}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188 \};}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CMDQUEUE\_H}}
+\DoxyCodeLine{192 }
+
+\end{DoxyCode}

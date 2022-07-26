@@ -1,0 +1,333 @@
+\hypertarget{StateTable_8h_source}{}\doxysection{State\+Table.\+h}
+\label{StateTable_8h_source}\index{src/StateTable.h@{src/StateTable.h}}
+\mbox{\hyperlink{StateTable_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{25 \textcolor{comment}{// Comment from cisst library}}
+\DoxyCodeLine{26 \textcolor{comment}{// The state data table is the storage for the state of the task that}}
+\DoxyCodeLine{27 \textcolor{comment}{// the table is associated with. It is a heterogenous circular buffer}}
+\DoxyCodeLine{28 \textcolor{comment}{// and can contain data of any type so long as it is derived from}}
+\DoxyCodeLine{29 \textcolor{comment}{// mtsGenericObject.  The state data table also resolves conflicts}}
+\DoxyCodeLine{30 \textcolor{comment}{// between reads and writes to the state, by ensuring that the reader}}
+\DoxyCodeLine{31 \textcolor{comment}{// head is always one behind the write head. To ensure this we have an}}
+\DoxyCodeLine{32 \textcolor{comment}{// assumption here that there is only one writer, though there can be}}
+\DoxyCodeLine{33 \textcolor{comment}{// multiple readers. State Data Table is also refered as Data Table or}}
+\DoxyCodeLine{34 \textcolor{comment}{// State Table elsewhere in the documentation.}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef STATETABLE\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define STATETABLE\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{StateArray_8h}{StateArray.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{StateIndex_8h}{StateIndex.h}}"{}}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{TimeServer_8h}{TimeServer.h}}"{}}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include <any>}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{50 \textcolor{keyword}{typedef} \textcolor{keywordtype}{int} \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{StateDataId}};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{comment}{// CKim -\/ StateTable has 4 std::vector}}
+\DoxyCodeLine{53 \textcolor{comment}{// 1. StateVector -\/> Column vector storing time histroy of table entry}}
+\DoxyCodeLine{54 \textcolor{comment}{// 1. StateVectorDataName -\/> Stores name of each entry}}
+\DoxyCodeLine{55 \textcolor{comment}{// 3. StateVectorElement -\/> Row vector storing current value of each entry}}
+\DoxyCodeLine{56 \textcolor{comment}{// 4. StateVectorAccessor -\/> Stores Accessor for each entry}}
+\DoxyCodeLine{57 \textcolor{keyword}{class }\mbox{\hyperlink{classStateTable}{StateTable}}}
+\DoxyCodeLine{58 \{}
+\DoxyCodeLine{59     \textcolor{comment}{// CKim -\/ Utility classes (AccessorBase, Accessor, .... )}}
+\DoxyCodeLine{60     \textcolor{comment}{// They are used for accessing the StateTable. Defined inside the definition of the}}
+\DoxyCodeLine{61     \textcolor{comment}{// StateTable class. These are called 'NestedClass'. They are in namespace of 'StateTable'}}
+\DoxyCodeLine{62     \textcolor{comment}{// For example, StateTable::AccessorBase}}
+\DoxyCodeLine{63 \textcolor{keyword}{public}:}
+\DoxyCodeLine{64     \textcolor{comment}{// CKim -\/ Nested class 'AccessorBase' inherited by 'Accessor' class}}
+\DoxyCodeLine{65     \textcolor{keyword}{class }\mbox{\hyperlink{classStateTable_1_1AccessorBase}{AccessorBase}}}
+\DoxyCodeLine{66     \{}
+\DoxyCodeLine{67     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{68         \textcolor{keyword}{const} \mbox{\hyperlink{classStateTable}{StateTable}} \&Table;}
+\DoxyCodeLine{69         \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{StateDataId}} Id;   \textcolor{comment}{// Not currently used}}
+\DoxyCodeLine{70     \textcolor{keyword}{public}:}
+\DoxyCodeLine{71         \mbox{\hyperlink{classStateTable_1_1AccessorBase}{AccessorBase}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStateTable}{StateTable}} \&table, \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{StateDataId}} \textcolor{keywordtype}{id}): Table(table), Id(\textcolor{keywordtype}{id}) \{\}}
+\DoxyCodeLine{72         \textcolor{keyword}{virtual} \mbox{\hyperlink{classStateTable_1_1AccessorBase}{\string~AccessorBase}}() \{\}}
+\DoxyCodeLine{73 \textcolor{comment}{//        virtual void ToStream(std::ostream \& outputStream, const StateIndex \& when) const = 0;}}
+\DoxyCodeLine{74     \};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{comment}{// -\/-\/-\/-\/ Beginning of 'Accessor' Class Definition -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{77     \textcolor{comment}{// CKim -\/ Nested class 'Accessor' inherits 'AccessorBase' class, templated by element it stores}}
+\DoxyCodeLine{78     \textcolor{keyword}{template} <\textcolor{keyword}{class} \_elementType>}
+\DoxyCodeLine{79     \textcolor{keyword}{class }\mbox{\hyperlink{classStateTable_1_1Accessor}{Accessor}} : \textcolor{keyword}{public} \mbox{\hyperlink{classStateTable_1_1AccessorBase}{AccessorBase}}}
+\DoxyCodeLine{80     \{}
+\DoxyCodeLine{81         \textcolor{comment}{//typedef typename \_elementType value\_type;}}
+\DoxyCodeLine{82         \textcolor{comment}{//typedef typename \_elementType\& value\_ref\_type; // ???? Check}}
+\DoxyCodeLine{83         \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \mbox{\hyperlink{classStateTable_1_1Accessor}{StateTable::Accessor<\_elementType>}} \mbox{\hyperlink{classStateTable_1_1Accessor}{ThisType}};}
+\DoxyCodeLine{84         \textcolor{keyword}{const} \mbox{\hyperlink{classStateArray}{StateArray<\_elementType>}} \& History;}
+\DoxyCodeLine{85         \_elementType * Current;}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keyword}{public}:}
+\DoxyCodeLine{88         \textcolor{comment}{// CKim -\/ Accessor is initialized by the column of the table ('History')}}
+\DoxyCodeLine{89         \mbox{\hyperlink{classStateTable_1_1Accessor}{Accessor}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStateTable}{StateTable}} \& table, \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{StateDataId}} \textcolor{keywordtype}{id},}
+\DoxyCodeLine{90                  \textcolor{keyword}{const} \mbox{\hyperlink{classStateArray}{StateArray<\_elementType>}} * history, \_elementType * data):}
+\DoxyCodeLine{91             \mbox{\hyperlink{classStateTable_1_1AccessorBase}{AccessorBase}}(table, \textcolor{keywordtype}{id}), History(*history), Current(data) \{\}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{comment}{//        void ToStream(std::ostream \& outputStream, const StateIndex \& when) const \{}}
+\DoxyCodeLine{94 \textcolor{comment}{//            History.Element(when.Index()).ToStream(outputStream);}}
+\DoxyCodeLine{95 \textcolor{comment}{//        \}}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97         \textcolor{keywordtype}{bool} Get(\textcolor{keyword}{const} \mbox{\hyperlink{classStateIndex}{StateIndex}} \& when, \_elementType\& data)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{98             data = History.\mbox{\hyperlink{classStateArray_a15e4776d2754babf976db04d2595a69e}{Element}}(when.Index());}
+\DoxyCodeLine{99             \textcolor{keywordflow}{return} Table.\mbox{\hyperlink{classStateTable_afa5d2a5cdc2dbbf30c2e415f3d935779}{ValidateReadIndex}}(when);}
+\DoxyCodeLine{100         \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102         \textcolor{comment}{//This should be used with caution because}}
+\DoxyCodeLine{103         \textcolor{comment}{//the state table mechanism could override the data that the pointer is pointing to.}}
+\DoxyCodeLine{104         \textcolor{keyword}{const} \_elementType * GetPointer(\textcolor{keyword}{const} \mbox{\hyperlink{classStateIndex}{StateIndex}} \& when)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{105             \textcolor{keywordflow}{if} (!Table.\mbox{\hyperlink{classStateTable_afa5d2a5cdc2dbbf30c2e415f3d935779}{ValidateReadIndex}}(when))}
+\DoxyCodeLine{106                 \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{107             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{108                 \textcolor{keywordflow}{return}  \&(History.\mbox{\hyperlink{classStateArray_a15e4776d2754babf976db04d2595a69e}{Element}}(when.Index()));}
+\DoxyCodeLine{109         \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{comment}{//        bool Get(const StateIndex \& when, std::any \& data) const \{}}
+\DoxyCodeLine{112 \textcolor{comment}{//            \_elementType* pdata = std::any\_cast<\_elementType>(\&data);}}
+\DoxyCodeLine{113 \textcolor{comment}{//            if (pdata)  \{    return Get(when, *pdata);                          \}}}
+\DoxyCodeLine{114 \textcolor{comment}{//            else        \{   std::cout << "{}any\_cast error\(\backslash\)n"{};    return false;   \}}}
+\DoxyCodeLine{115 \textcolor{comment}{//        \}}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117         \textcolor{keywordtype}{bool} GetLatest(\_elementType \& data)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{118             \textcolor{keywordflow}{return} Get(Table.\mbox{\hyperlink{classStateTable_a220b61f2bb044b2f54a02fbb00fad2db}{GetIndexReader}}(), data);}
+\DoxyCodeLine{119         \}}
+\DoxyCodeLine{120 \textcolor{comment}{//        bool GetLatest(std::any \& data) const \{}}
+\DoxyCodeLine{121 \textcolor{comment}{//            return Get(Table.GetIndexReader(), data);}}
+\DoxyCodeLine{122 \textcolor{comment}{//        \}}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124         \textcolor{keywordtype}{bool} GetDelayed(\_elementType \& data)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{125             \textcolor{keywordflow}{return} Get(Table.\mbox{\hyperlink{classStateTable_abfb517d2bdf40ef2a4b25c1a8201d9c0}{GetIndexDelayed}}(), data);}
+\DoxyCodeLine{126         \}}
+\DoxyCodeLine{127 \textcolor{comment}{//        bool GetDelayed(std::any \& data) const \{}}
+\DoxyCodeLine{128 \textcolor{comment}{//            return Get(Table.GetIndexDelayed(), data);}}
+\DoxyCodeLine{129 \textcolor{comment}{//        \}}}
+\DoxyCodeLine{130         \textcolor{keywordtype}{void} SetCurrent(\textcolor{keyword}{const} \_elementType \& data) \{}
+\DoxyCodeLine{131             *Current = data;}
+\DoxyCodeLine{132         \}}
+\DoxyCodeLine{133     \};}
+\DoxyCodeLine{134     \textcolor{comment}{// -\/-\/-\/-\/ End of 'Accessor' Class Definition -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{140     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateTable_a44636dbf4c63ed85246a157fd05df997}{mStarted}};}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{143     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classStateTable_a046509023ddab57833b80771c83f7166}{HistoryLength}};}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{146     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classStateTable_a6db35f7a8bba0015f46a9338e35125de}{IndexWriter}};}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{149     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classStateTable_a79e12909e16872ee019f04d71cb9fb5c}{IndexReader}};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{152     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classStateTable_a64772bd166fb293d9f94b8fc9f5dc672}{IndexDelayed}};}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{156     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classStateTable_ae63be5a386c3cd4bfd4ee7e18819b3ce}{Delay}};}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{165     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateTable_ab254dd5b1146701225c46d930e93b5fd}{AutomaticAdvanceFlag}};}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{168     std::vector<StateArrayBase*> \mbox{\hyperlink{classStateTable_af965b16d5576d7e99ab3670d524959e9}{StateVector}};}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{174     std::vector<std::any> \mbox{\hyperlink{classStateTable_a33cb1a87888ebbd0b80273bd4ab343b2}{StateVectorElements}};}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{178     std::vector<std::string> \mbox{\hyperlink{classStateTable_a85a1f74617ae2f3ef511b88910454e7e}{StateVectorDataNames}};}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{182     std::vector<AccessorBase *> \mbox{\hyperlink{classStateTable_abe2b248b5bc1a23e91d2361a1d59b5a2}{StateVectorAccessors}};}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{186     std::vector<StateIndex::TimeTicksType> \mbox{\hyperlink{classStateTable_a4d846675c976f7109b34d8ec45eb5147}{Ticks}};}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{189     \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{StateDataId}} \mbox{\hyperlink{classStateTable_ada18475d20e3dcbcc2d6f91d8ad52c1d}{TicId}}, TocId;}
+\DoxyCodeLine{190     \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{StateDataId}} PeriodId;}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{193     \textcolor{comment}{//const TimeServer* ClockServer;}}
+\DoxyCodeLine{194     \mbox{\hyperlink{classTimeServer}{TimeServer}}* \mbox{\hyperlink{classStateTable_a2cee497d8a7d161771f144d9637a4e63}{ClockServer}};}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197  \textcolor{keyword}{public}:}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199     \textcolor{comment}{/* The start/end times for the current row of data. */}}
+\DoxyCodeLine{200     \textcolor{keywordtype}{double} Tic, Toc;}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{204     \textcolor{keywordtype}{double} \mbox{\hyperlink{classStateTable_aaa03a2e2e533ceb2fb7978cf12a9e3ad}{Period}};}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{207 \textcolor{comment}{//    mtsIntervalStatistics PeriodStats;}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{212     \textcolor{keywordtype}{double} \mbox{\hyperlink{classStateTable_a965101bb9d37ac3cc488853211492260}{SumOfPeriods}};}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{215     \textcolor{keywordtype}{double} \mbox{\hyperlink{classStateTable_ac490ad27a996f8b859185053667e1b64}{AveragePeriod}};}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{218     std::string \mbox{\hyperlink{classStateTable_a1e92786872880fb629159bbb34674af1}{Name}};}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{221     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateTable_ae6d3bdc8b8e31424b5f0270a67ca6fe6}{Write}}(\mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{StateDataId}} \textcolor{keywordtype}{id}, \textcolor{keyword}{const} std::any \& pData);}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224  \textcolor{keyword}{public}:}
+\DoxyCodeLine{227     \mbox{\hyperlink{classStateTable_a9e7428c7489be69df4aaa8652a049d8f}{StateTable}}(\textcolor{keywordtype}{size\_t} size, \textcolor{keyword}{const} std::string \& name);}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{230     \mbox{\hyperlink{classStateTable_ab425e45d6015c555c203d65748a58b50}{\string~StateTable}}();}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{233     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateTable_a8fe656f64070637992347a5476b6aecb}{SetSize}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{237    \mbox{\hyperlink{classStateIndex}{StateIndex}} \mbox{\hyperlink{classStateTable_a220b61f2bb044b2f54a02fbb00fad2db}{GetIndexReader}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStateTable_a220b61f2bb044b2f54a02fbb00fad2db}{GetIndexReader}}(\mbox{\hyperlink{classStateIndex}{StateIndex}} \& timeIndex)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{240         timeIndex = \mbox{\hyperlink{classStateTable_a220b61f2bb044b2f54a02fbb00fad2db}{GetIndexReader}}();}
+\DoxyCodeLine{241     \}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{246     \mbox{\hyperlink{classStateIndex}{StateIndex}} \mbox{\hyperlink{classStateTable_abfb517d2bdf40ef2a4b25c1a8201d9c0}{GetIndexDelayed}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{249     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classStateTable_ae94b616a9b5ea5cc118ded53db405f64}{SetDelay}}(\textcolor{keywordtype}{size\_t} newDelay);}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{252     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateTable_afa5d2a5cdc2dbbf30c2e415f3d935779}{ValidateReadIndex}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStateIndex}{StateIndex}} \&timeIndex)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} (\mbox{\hyperlink{classStateTable_a4d846675c976f7109b34d8ec45eb5147}{Ticks}}[timeIndex.Index()] == timeIndex.\mbox{\hyperlink{classStateIndex_ab7652aa4b9c91cb8445b204423ae130a}{Ticks}}());}
+\DoxyCodeLine{254     \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{257     \textcolor{keyword}{inline} \textcolor{keyword}{const} \textcolor{keywordtype}{bool} \& \mbox{\hyperlink{classStateTable_a5007129d05a25f5b7dc3d65350a53df7}{AutomaticAdvance}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{258         \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classStateTable_ab254dd5b1146701225c46d930e93b5fd}{AutomaticAdvanceFlag}};}
+\DoxyCodeLine{259     \}}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{262     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStateTable_a83f243debe3fc0610f70007aca88d8bd}{SetAutomaticAdvance}}(\textcolor{keywordtype}{bool} automaticAdvance) \{}
+\DoxyCodeLine{263         this-\/>AutomaticAdvanceFlag = automaticAdvance;}
+\DoxyCodeLine{264     \}}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266 \textcolor{comment}{//    /*! Check if the signal has been registered. */}}
+\DoxyCodeLine{267 \textcolor{comment}{//    int GetStateVectorID(const std::string \& dataName) const;}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{273     \textcolor{keyword}{template} <\textcolor{keyword}{class} \_elementType>}
+\DoxyCodeLine{274     \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{StateDataId}} \mbox{\hyperlink{classStateTable_ac18016ca07584d604d2b99f58a5cadd3}{NewElement}}(\textcolor{keyword}{const} std::string \& name = \textcolor{stringliteral}{"{}"{}}, \_elementType * element = 0);}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{277     \textcolor{keyword}{template} <\textcolor{keyword}{class} \_elementType>}
+\DoxyCodeLine{278     \textcolor{keywordtype}{void} \mbox{\hyperlink{classStateTable_a08a58469c3120abc35cbfdcf4db53b4a}{AddData}}(\_elementType \& element, \textcolor{keyword}{const} std::string \& name = \textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{279         \mbox{\hyperlink{classStateTable_ac18016ca07584d604d2b99f58a5cadd3}{NewElement}}(name, \&element);}
+\DoxyCodeLine{280     \}}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282 \textcolor{comment}{//    /*! Return pointer to the state data element specified by the id.}}
+\DoxyCodeLine{283 \textcolor{comment}{//      This element is the same type as the state data table entry. */}}
+\DoxyCodeLine{284 \textcolor{comment}{//    template <class \_elementType>}}
+\DoxyCodeLine{285 \textcolor{comment}{//    \_elementType * GetStateDataElement(StateDataId id) const \{}}
+\DoxyCodeLine{286 \textcolor{comment}{//        return StateVectorElements[id]; // WEIRD???}}
+\DoxyCodeLine{287 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289 }
+\DoxyCodeLine{290 \textcolor{comment}{//    std::any GetStateVectorElement(size\_t id) const \{}}
+\DoxyCodeLine{291 \textcolor{comment}{//        return StateVectorElements[id];}}
+\DoxyCodeLine{292 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{298     \textcolor{keyword}{template}<\textcolor{keyword}{class} \_elementType>}
+\DoxyCodeLine{299     \mbox{\hyperlink{classStateTable_1_1AccessorBase}{StateTable::AccessorBase}} * \mbox{\hyperlink{classStateTable_a1347fbfc995b40827b5bdbbba3229fd4}{GetAccessorByInstance}}(\textcolor{keyword}{const} \_elementType \& element) \textcolor{keyword}{const};}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{306     \mbox{\hyperlink{classStateTable_1_1AccessorBase}{StateTable::AccessorBase}} * \mbox{\hyperlink{classStateTable_aca33b34312cc5602c6eb116264182889}{GetAccessorByName}}(\textcolor{keyword}{const} std::string \& name) \textcolor{keyword}{const};}
+\DoxyCodeLine{307     \mbox{\hyperlink{classStateTable_1_1AccessorBase}{StateTable::AccessorBase}} * \mbox{\hyperlink{classStateTable_aca33b34312cc5602c6eb116264182889}{GetAccessorByName}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} * name) \textcolor{keyword}{const};}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{314     \mbox{\hyperlink{classStateTable_1_1AccessorBase}{StateTable::AccessorBase}} * \mbox{\hyperlink{classStateTable_a311b174897afa7afc17ade0a78296c21}{GetAccessorById}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{317     \mbox{\hyperlink{classStateIndex}{StateIndex}} \mbox{\hyperlink{classStateTable_aecdfc4b2d66cf58eab3d05959a90c4cc}{GetIndexWriter}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{320     \textcolor{keywordtype}{void} \mbox{\hyperlink{classStateTable_a7f8a7fe7c3f765a218e0a27f1328de04}{Start}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{323     \textcolor{keywordtype}{void} \mbox{\hyperlink{classStateTable_adbdd330d8a7cabe5f121ac0c091f4ed6}{StartIfAutomatic}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{326     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateTable_a4f711193e359de27338e7cd235a18e18}{Started}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{327         \textcolor{keywordflow}{return} \mbox{\hyperlink{classStateTable_a44636dbf4c63ed85246a157fd05df997}{mStarted}};}
+\DoxyCodeLine{328     \}}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{335     \textcolor{keywordtype}{void} \mbox{\hyperlink{classStateTable_a91e8ea7d29e5e87d9d94b606be799c96}{Advance}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{338     \textcolor{keywordtype}{void} \mbox{\hyperlink{classStateTable_ab4facbda7129847a9b59d9f248d049e2}{AdvanceIfAutomatic}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{343     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateTable_a2ef6c39fbd1b6800760fb2f77a6f02a6}{ReplayAdvance}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{346     \textcolor{comment}{//void Cleanup(void);}}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classStateTable_a14a85a28b62969973be214febc1c51ac}{GetTic}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{349         \textcolor{keywordflow}{return} this-\/>Tic;\textcolor{comment}{//.Data;}}
+\DoxyCodeLine{350     \}}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} GetToc(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{353         \textcolor{keywordflow}{return} this-\/>Toc;\textcolor{comment}{//.Data;}}
+\DoxyCodeLine{354     \}}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{356     \textcolor{keyword}{inline} \textcolor{keywordtype}{size\_t} GetHistoryLength(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{357         \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classStateTable_a046509023ddab57833b80771c83f7166}{HistoryLength}};}
+\DoxyCodeLine{358     \}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360     \textcolor{keyword}{inline} \textcolor{keywordtype}{size\_t} GetNumberOfElements(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{361         \textcolor{keywordflow}{return} this-\/>StateVector.size();}
+\DoxyCodeLine{362     \}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{366     \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classStateTable_ae17dcff720714fac154a30303305b096}{GetAveragePeriod}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{367         \textcolor{keywordflow}{return} \mbox{\hyperlink{classStateTable_ac490ad27a996f8b859185053667e1b64}{AveragePeriod}};}
+\DoxyCodeLine{368     \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{371     \textcolor{keywordtype}{void} \mbox{\hyperlink{classStateTable_ad234f57d41a9b8ccb3b9cf917c3579ef}{ToStream}}(std::ostream \& out) \textcolor{keyword}{const};}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{373 \textcolor{comment}{//    /*! For debugging, dumps some values of the current data table to}}
+\DoxyCodeLine{374 \textcolor{comment}{//      output stream. */}}
+\DoxyCodeLine{375 \textcolor{comment}{//    void Debug(std::ostream \& out, unsigned int * listColumn, unsigned int number) const;}}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{377 \textcolor{comment}{//    /*! This method is to dump the state data table in the csv format,}}
+\DoxyCodeLine{378 \textcolor{comment}{//        allowing easy import into matlab.}}
+\DoxyCodeLine{379 \textcolor{comment}{//        Assumes that individual columns are also printed in csv format.}}
+\DoxyCodeLine{380 \textcolor{comment}{//     By default print all rows, if nonZeroOnly == true then print only those rows which have a nonzero Ticks}}
+\DoxyCodeLine{381 \textcolor{comment}{//     value i.e, those rows that have been written to at least once.}}
+\DoxyCodeLine{382 \textcolor{comment}{//     */}}
+\DoxyCodeLine{383 \textcolor{comment}{//    void CSVWrite(std::ostream \& out, bool nonZeroOnly = false);}}
+\DoxyCodeLine{384 \textcolor{comment}{//    void CSVWrite(std::ostream \& out, unsigned int * listColumn, unsigned int number, bool nonZeroOnly = false);}}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{386 \textcolor{comment}{//    void CSVWrite(std::ostream \& out, mtsGenericObject ** listColumn, unsigned int number, bool nonZeroOnly = false);}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{389     \textcolor{keyword}{inline} \textcolor{keyword}{const} std::string \& \mbox{\hyperlink{classStateTable_a75395b16ba552a3771f0d29094496628}{GetName}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classStateTable_a1e92786872880fb629159bbb34674af1}{Name}}; \}}
+\DoxyCodeLine{390 \};}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393 \textcolor{comment}{// CKim -\/ Add new element to the State Table and returns the id of the column}}
+\DoxyCodeLine{394 \textcolor{comment}{// Adding a new column (whose length is HistoryLength, name is 'name' and stores '\_elementType' data) to the table,}}
+\DoxyCodeLine{395 \textcolor{comment}{// The pointer to this column is stored in 'StateVector'. 'Name' is stored in 'StateVectorDataNames'}}
+\DoxyCodeLine{396 \textcolor{comment}{// 'Accessor' to read data of each column is stored in 'StateVectorAccessors' and}}
+\DoxyCodeLine{397 \textcolor{comment}{// Pointer to the data that will be recorded to each column are casted inton std::any and stored in}}
+\DoxyCodeLine{398 \textcolor{comment}{// 'StateVectorElements'}}
+\DoxyCodeLine{399 \textcolor{keyword}{template} <\textcolor{keyword}{class} \_elementType>}
+\DoxyCodeLine{400 \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{StateDataId}} \mbox{\hyperlink{classStateTable_ac18016ca07584d604d2b99f58a5cadd3}{StateTable::NewElement}}(\textcolor{keyword}{const} std::string \& name, \_elementType* pElement) \{}
+\DoxyCodeLine{401 \textcolor{comment}{//    typedef typename mtsGenericTypes<\_elementType>::FinalType FinalType;}}
+\DoxyCodeLine{402 \textcolor{comment}{//    typedef typename mtsGenericTypes<\_elementType>::FinalRefType FinalRefType;}}
+\DoxyCodeLine{403 \textcolor{comment}{//    mtsStateArray<FinalType> * elementHistory =}}
+\DoxyCodeLine{404 \textcolor{comment}{//        new mtsStateArray<FinalType>(*element, HistoryLength);}}
+\DoxyCodeLine{405 }
+\DoxyCodeLine{406     \textcolor{comment}{// CKim -\/ 'StateVectorDataName' stores the name of the column}}
+\DoxyCodeLine{407     \mbox{\hyperlink{classStateTable_a85a1f74617ae2f3ef511b88910454e7e}{StateVectorDataNames}}.push\_back(name);}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409     \textcolor{comment}{// CKim -\/ Create a column vector storing '\_elementType' data and 'HistoryLength' long}}
+\DoxyCodeLine{410     \mbox{\hyperlink{classStateArray}{StateArray<\_elementType>}} * elementHistory = \textcolor{keyword}{new} \mbox{\hyperlink{classStateArray}{StateArray<\_elementType>}}(*pElement, \mbox{\hyperlink{classStateTable_a046509023ddab57833b80771c83f7166}{HistoryLength}});}
+\DoxyCodeLine{411     \mbox{\hyperlink{classStateTable_af965b16d5576d7e99ab3670d524959e9}{StateVector}}.push\_back(elementHistory);}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413     \textcolor{comment}{// CKim -\/ Assign Id of the column}}
+\DoxyCodeLine{414     \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{StateDataId}} \textcolor{keywordtype}{id} = \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{StateDataId}}\textcolor{keyword}{>}(\mbox{\hyperlink{classStateTable_af965b16d5576d7e99ab3670d524959e9}{StateVector}}.size() -\/ 1);}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{416     \textcolor{comment}{// CKim -\/ 'StateVectorAccessors' store the 'Accessor' of the added column}}
+\DoxyCodeLine{417     \mbox{\hyperlink{classStateTable_1_1AccessorBase}{AccessorBase}} * accessor = \textcolor{keyword}{new} \mbox{\hyperlink{classStateTable_1_1Accessor}{Accessor<\_elementType>}}(*\textcolor{keyword}{this}, \textcolor{keywordtype}{id}, elementHistory, pElement);}
+\DoxyCodeLine{418     \mbox{\hyperlink{classStateTable_abe2b248b5bc1a23e91d2361a1d59b5a2}{StateVectorAccessors}}.push\_back(accessor);}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{420     \textcolor{comment}{// CKim -\/ 'StateVectorElement' is a row of the StateTable, which will}}
+\DoxyCodeLine{421     \textcolor{comment}{// consists of pointers to different data type, and the data will be}}
+\DoxyCodeLine{422     \textcolor{comment}{// written to the table when 'Advance' is called.}}
+\DoxyCodeLine{423     \textcolor{comment}{// Original implementation in CISST library used vector of 'mtsGenericObject*',}}
+\DoxyCodeLine{424     \textcolor{comment}{// in this implementation, we will use std::any introduced in C++17}}
+\DoxyCodeLine{425     \textcolor{comment}{// set(CMAKE\_CXX\_STANDARD 17) / set(CMAKE\_CXX\_STANDARD\_REQUIRED ON)}}
+\DoxyCodeLine{426     \textcolor{comment}{// in CMake to include C++ 17 lbraries}}
+\DoxyCodeLine{427     \textcolor{comment}{// https://en.cppreference.com/w/cpp/utility/any/type}}
+\DoxyCodeLine{428     \textcolor{comment}{// FinalRefType *pdata = mtsGenericTypes<\_elementType>::ConditionalWrap(*element);}}
+\DoxyCodeLine{429     \textcolor{comment}{// StateVectorElements.push\_back(pdata);}}
+\DoxyCodeLine{430     \textcolor{comment}{// Pointer to the state variable will be converted to std::any}}
+\DoxyCodeLine{431     \mbox{\hyperlink{classStateTable_a33cb1a87888ebbd0b80273bd4ab343b2}{StateVectorElements}}.push\_back(pElement);}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{433 }
+\DoxyCodeLine{434     \textcolor{keywordflow}{return} id;}
+\DoxyCodeLine{435 \}}
+\DoxyCodeLine{436 }
+\DoxyCodeLine{437 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STATETABLE\_H}}
+\DoxyCodeLine{438 }
+
+\end{DoxyCode}

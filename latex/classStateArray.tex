@@ -1,0 +1,161 @@
+\hypertarget{classStateArray}{}\doxysection{State\+Array\texorpdfstring{$<$}{<} \+\_\+element\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classStateArray}\index{StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}}
+
+
+Inheritance diagram for State\+Array\texorpdfstring{$<$}{<} \+\_\+element\+Type \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classStateArray__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for State\+Array\texorpdfstring{$<$}{<} \+\_\+element\+Type \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classStateArray__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStateArray_ae1cef4b9fb851cc92e5d02473854c47f}\label{classStateArray_ae1cef4b9fb851cc92e5d02473854c47f}} 
+typedef size\+\_\+t {\bfseries index\+\_\+type}
+\item 
+\mbox{\Hypertarget{classStateArray_a543571c16b938d72278586ff4399f632}\label{classStateArray_a543571c16b938d72278586ff4399f632}} 
+typedef size\+\_\+t {\bfseries size\+\_\+type}
+\item 
+\mbox{\Hypertarget{classStateArray_a46da4b8f7a439ab0a8297923afbf14da}\label{classStateArray_a46da4b8f7a439ab0a8297923afbf14da}} 
+typedef \+\_\+element\+Type {\bfseries value\+\_\+type}
+\item 
+\mbox{\Hypertarget{classStateArray_a44ad83c121aa7e3e64e75cfe26868eaa}\label{classStateArray_a44ad83c121aa7e3e64e75cfe26868eaa}} 
+typedef std\+::vector$<$ value\+\_\+type $>$ {\bfseries Vector\+Type}
+\item 
+\mbox{\Hypertarget{classStateArray_a77be4ca4ed5e195e53342d2fd978b824}\label{classStateArray_a77be4ca4ed5e195e53342d2fd978b824}} 
+typedef Vector\+Type\+::iterator {\bfseries iterator}
+\item 
+\mbox{\Hypertarget{classStateArray_a675d70e38bd9de2f374d441de4b6d875}\label{classStateArray_a675d70e38bd9de2f374d441de4b6d875}} 
+typedef Vector\+Type\+::const\+\_\+iterator {\bfseries const\+\_\+iterator}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStateArray_a5cb857d8eae4eff45196edb44be97d96}{State\+Array}} (const value\+\_\+type \&object\+Example, size\+\_\+type size=0)
+\item 
+virtual \mbox{\hyperlink{classStateArray_aa08c99c48ae17dc928e48ab15cbd93cd}{$\sim$\+State\+Array}} ()
+\item 
+bool \mbox{\hyperlink{classStateArray_a124351dd24ecdbd0ecc6d8299bf5cc76}{Set\+Data\+Size}} (const size\+\_\+t size)
+\item 
+const value\+\_\+type \& \mbox{\hyperlink{classStateArray_a15e4776d2754babf976db04d2595a69e}{Element}} (index\+\_\+type index) const
+\item 
+\mbox{\Hypertarget{classStateArray_a271830993827cb5cfdbd71a49d53434c}\label{classStateArray_a271830993827cb5cfdbd71a49d53434c}} 
+value\+\_\+type \& {\bfseries Element} (index\+\_\+type index)
+\item 
+void \mbox{\hyperlink{classStateArray_ae97663bf6a0db75916ce8662cc4467b0}{Copy}} (index\+\_\+type index\+To, index\+\_\+type index\+From)
+\item 
+bool \mbox{\hyperlink{classStateArray_ac9028ef136b47f2eb89eb3963a6505f0}{Get}} (index\+\_\+type index, const std\+::any \&p\+Data) const
+\item 
+bool \mbox{\hyperlink{classStateArray_ac7bed0c52016dc3abbc1758190f51e09}{Set}} (index\+\_\+type index, const std\+::any \&p\+Data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector\+Type \mbox{\hyperlink{classStateArray_ad9d14336369cd61951593cba398decb4}{Data}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStateArray_a5cb857d8eae4eff45196edb44be97d96}\label{classStateArray_a5cb857d8eae4eff45196edb44be97d96}} 
+\index{StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}!StateArray@{StateArray}}
+\index{StateArray@{StateArray}!StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{StateArray()}{StateArray()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+\mbox{\hyperlink{classStateArray}{State\+Array}}$<$ \+\_\+element\+Type $>$\+::\mbox{\hyperlink{classStateArray}{State\+Array}} (\begin{DoxyParamCaption}\item[{const value\+\_\+type \&}]{object\+Example,  }\item[{size\+\_\+type}]{size = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor. Does nothing \mbox{\Hypertarget{classStateArray_aa08c99c48ae17dc928e48ab15cbd93cd}\label{classStateArray_aa08c99c48ae17dc928e48ab15cbd93cd}} 
+\index{StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}!````~StateArray@{$\sim$StateArray}}
+\index{````~StateArray@{$\sim$StateArray}!StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$StateArray()}{~StateArray()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+virtual \mbox{\hyperlink{classStateArray}{State\+Array}}$<$ \+\_\+element\+Type $>$\+::$\sim$\mbox{\hyperlink{classStateArray}{State\+Array}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Default destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStateArray_ae97663bf6a0db75916ce8662cc4467b0}\label{classStateArray_ae97663bf6a0db75916ce8662cc4467b0}} 
+\index{StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}!Copy@{Copy}}
+\index{Copy@{Copy}!StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+void \mbox{\hyperlink{classStateArray}{State\+Array}}$<$ \+\_\+element\+Type $>$\+::Copy (\begin{DoxyParamCaption}\item[{index\+\_\+type}]{index\+To,  }\item[{index\+\_\+type}]{index\+From }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Overloaded \mbox{[}\mbox{]} operator. Returns data at index (of type mts\+Generic\+Object). Currently used for data collection (mts\+Collector\+State). $\ast$/ inline value\+\_\+type \& operator\mbox{[}$\,$\mbox{]}(index\+\_\+type index)\{ return Data\mbox{[}index\mbox{]}; \} inline const value\+\_\+type \& operator\mbox{[}$\,$\mbox{]}(index\+\_\+type index) const \{ return Data\mbox{[}index\mbox{]}; \} inline const std\+::string operator\mbox{[}$\,$\mbox{]}(index\+\_\+type index) const \{ std\+::ostringstream ostr; ostr \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} Data\mbox{[}index\mbox{]}; return ostr.\+str(); \}
+
+/$\ast$ Create the array of data. This is currently unused. $\ast$/ inline mts\+State\+Array\+Base $\ast$ Create(const mts\+Generic\+Object $\ast$ object\+Example, size\+\_\+type size) \{ const value\+\_\+type $\ast$ typed\+Object\+Example = dynamic\+\_\+cast$<$const value\+\_\+type $\ast$$>$(object\+Example); if (typed\+Object\+Example) \{ this-\/\texorpdfstring{$>$}{>}Data.\+resize(size, $\ast$typed\+Object\+Example); this-\/\texorpdfstring{$>$}{>}Data\+Class\+Services = object\+Example-\/\texorpdfstring{$>$}{>}Services(); CMN\+\_\+\+ASSERT(this-\/\texorpdfstring{$>$}{>}Data\+Class\+Services); \} else \{ CMN\+\_\+\+LOG\+\_\+\+INIT\+\_\+\+ERROR \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \char`\"{}mts\+State\+Array\+: Create used with an object example of the wrong type, received\+: \char`\"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} object\+Example-\/\texorpdfstring{$>$}{>}Services()-\/\texorpdfstring{$>$}{>}Get\+Name() \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \char`\"{} while expecting \char`\"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} value\+\_\+type\+::\+Class\+Services()-\/\texorpdfstring{$>$}{>}Get\+Name() \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; return 0; \} return this; \}
+
+\begin{DoxyVerb}/*! Copy data from one index to another within the same array.  
+\end{DoxyVerb}
+ 
+
+Implements \mbox{\hyperlink{classStateArrayBase_a24202e22e1468a1f3c6d9c5c5dc82d61}{State\+Array\+Base}}.
+
+\mbox{\Hypertarget{classStateArray_a15e4776d2754babf976db04d2595a69e}\label{classStateArray_a15e4776d2754babf976db04d2595a69e}} 
+\index{StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}!Element@{Element}}
+\index{Element@{Element}!StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{Element()}{Element()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+const value\+\_\+type \& \mbox{\hyperlink{classStateArray}{State\+Array}}$<$ \+\_\+element\+Type $>$\+::Element (\begin{DoxyParamCaption}\item[{index\+\_\+type}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Access element at index. This returns the data of the derived type (value\+\_\+type) rather than the base type (mts\+Generic\+Object), which is returned by the overloaded operator \mbox{[}\mbox{]}. \mbox{\Hypertarget{classStateArray_ac9028ef136b47f2eb89eb3963a6505f0}\label{classStateArray_ac9028ef136b47f2eb89eb3963a6505f0}} 
+\index{StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}!Get@{Get}}
+\index{Get@{Get}!StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+bool \mbox{\hyperlink{classStateArray}{State\+Array}}$<$ \+\_\+element\+Type $>$\+::Get (\begin{DoxyParamCaption}\item[{index\+\_\+type}]{index,  }\item[{const std\+::any \&}]{p\+Data }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get and Set data from array. The Get and Set member functions deserve special mention because they must overcome a limitation of C++ -- namely, that it does not fully support containers of heterogeneous objects. In particular, we expect the \textquotesingle{}object\textquotesingle{} parameter to be of type \+\_\+element\+Type\& (the derived class) rather than mts\+Generic\+Object\& (the base class). This can be handled using std\+::any 
+
+Implements \mbox{\hyperlink{classStateArrayBase_a0c5d89e7a2fae311fa05830532a9a34a}{State\+Array\+Base}}.
+
+\mbox{\Hypertarget{classStateArray_ac7bed0c52016dc3abbc1758190f51e09}\label{classStateArray_ac7bed0c52016dc3abbc1758190f51e09}} 
+\index{StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}!Set@{Set}}
+\index{Set@{Set}!StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+bool \mbox{\hyperlink{classStateArray}{State\+Array}}$<$ \+\_\+element\+Type $>$\+::Set (\begin{DoxyParamCaption}\item[{index\+\_\+type}]{index,  }\item[{const std\+::any \&}]{p\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Set data in array. 
+
+Implements \mbox{\hyperlink{classStateArrayBase_aad5869a28fc36164a4ee2f28a73e40dc}{State\+Array\+Base}}.
+
+\mbox{\Hypertarget{classStateArray_a124351dd24ecdbd0ecc6d8299bf5cc76}\label{classStateArray_a124351dd24ecdbd0ecc6d8299bf5cc76}} 
+\index{StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}!SetDataSize@{SetDataSize}}
+\index{SetDataSize@{SetDataSize}!StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{SetDataSize()}{SetDataSize()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+bool \mbox{\hyperlink{classStateArray}{State\+Array}}$<$ \+\_\+element\+Type $>$\+::Set\+Data\+Size (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classStateArrayBase}{State\+Array\+Base}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classStateArray_ad9d14336369cd61951593cba398decb4}\label{classStateArray_ad9d14336369cd61951593cba398decb4}} 
+\index{StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}!Data@{Data}}
+\index{Data@{Data}!StateArray$<$ \_elementType $>$@{StateArray$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{Data}{Data}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+Vector\+Type \mbox{\hyperlink{classStateArray}{State\+Array}}$<$ \+\_\+element\+Type $>$\+::Data\hspace{0.3cm}{\ttfamily [protected]}}
+
+A vector to store the data. These element of the vector represents the cell of the state data table. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{StateArray_8h}{State\+Array.\+h}}\end{DoxyCompactItemize}

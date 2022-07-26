@@ -1,0 +1,53 @@
+\hypertarget{StateArrayBase_8h_source}{}\doxysection{State\+Array\+Base.\+h}
+\label{StateArrayBase_8h_source}\index{src/StateArrayBase.h@{src/StateArrayBase.h}}
+\mbox{\hyperlink{StateArrayBase_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef STATEARRAYBASE\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define STATEARRAYBASE\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <any>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <typeinfo>}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classStateArrayBase}{StateArrayBase}} \{}
+\DoxyCodeLine{26 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{28     \textcolor{keyword}{inline} \mbox{\hyperlink{classStateArrayBase_aad79ad6de559f0fb0f502efed8d771cb}{StateArrayBase}}(\textcolor{keywordtype}{void})\{\};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t} index\_type;}
+\DoxyCodeLine{32     \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t} size\_type;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{35     \textcolor{keyword}{inline} \textcolor{keyword}{virtual} \mbox{\hyperlink{classStateArrayBase_a74da43f42f06dff2a933f7500463be87}{\string~StateArrayBase}}(\textcolor{keywordtype}{void}) \{\};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{comment}{//    /*! Overloaded subscript operator. */}}
+\DoxyCodeLine{38 \textcolor{comment}{//    virtual std::any \& operator[](index\_type index) = 0;}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{comment}{//    /*! Overloaded subscript operator. */}}
+\DoxyCodeLine{41 \textcolor{comment}{//    virtual const std::any \& operator[](index\_type index) const = 0;}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \textcolor{keyword}{const} std::string operator[](index\_type index) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{comment}{//  /*! Create the array of data.  This is currently unused. */}}
+\DoxyCodeLine{47 \textcolor{comment}{//  virtual mtsStateArrayBase * Create(const mtsGenericObject * objectExample, size\_type size) = 0;}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStateArrayBase_a24202e22e1468a1f3c6d9c5c5dc82d61}{Copy}}(index\_type indexTo, index\_type indexFrom) = 0;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{53     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateArrayBase_a0c5d89e7a2fae311fa05830532a9a34a}{Get}}(index\_type index, \textcolor{keyword}{const} std::any \& pData) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{56     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateArrayBase_aad5869a28fc36164a4ee2f28a73e40dc}{Set}}(index\_type index, \textcolor{keyword}{const} std::any \& pData) = 0;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} SetDataSize(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} size) = 0;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{bool} SetSize(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} size)\{}
+\DoxyCodeLine{61         \textcolor{keywordflow}{return} SetDataSize(size);}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_mtsStateArrayBase\_h}}
+\DoxyCodeLine{68 }
+
+\end{DoxyCode}

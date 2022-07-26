@@ -1,0 +1,463 @@
+\hypertarget{classStateTable}{}\doxysection{State\+Table Class Reference}
+\label{classStateTable}\index{StateTable@{StateTable}}
+
+
+Collaboration diagram for State\+Table\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classStateTable__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classStateTable_1_1Accessor}{Accessor}}
+\item 
+class \mbox{\hyperlink{classStateTable_1_1AccessorBase}{Accessor\+Base}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStateTable_a9e7428c7489be69df4aaa8652a049d8f}{State\+Table}} (size\+\_\+t size, const std\+::string \&name)
+\item 
+\mbox{\hyperlink{classStateTable_ab425e45d6015c555c203d65748a58b50}{$\sim$\+State\+Table}} ()
+\item 
+bool \mbox{\hyperlink{classStateTable_a8fe656f64070637992347a5476b6aecb}{Set\+Size}} (const size\+\_\+t size)
+\item 
+\mbox{\hyperlink{classStateIndex}{State\+Index}} \mbox{\hyperlink{classStateTable_a220b61f2bb044b2f54a02fbb00fad2db}{Get\+Index\+Reader}} (void) const
+\item 
+\mbox{\Hypertarget{classStateTable_aee937e181ef7ce2b7d064610bd3eb87d}\label{classStateTable_aee937e181ef7ce2b7d064610bd3eb87d}} 
+void {\bfseries Get\+Index\+Reader} (\mbox{\hyperlink{classStateIndex}{State\+Index}} \&time\+Index) const
+\item 
+\mbox{\hyperlink{classStateIndex}{State\+Index}} \mbox{\hyperlink{classStateTable_abfb517d2bdf40ef2a4b25c1a8201d9c0}{Get\+Index\+Delayed}} (void) const
+\item 
+size\+\_\+t \mbox{\hyperlink{classStateTable_ae94b616a9b5ea5cc118ded53db405f64}{Set\+Delay}} (size\+\_\+t new\+Delay)
+\item 
+bool \mbox{\hyperlink{classStateTable_afa5d2a5cdc2dbbf30c2e415f3d935779}{Validate\+Read\+Index}} (const \mbox{\hyperlink{classStateIndex}{State\+Index}} \&time\+Index) const
+\item 
+const bool \& \mbox{\hyperlink{classStateTable_a5007129d05a25f5b7dc3d65350a53df7}{Automatic\+Advance}} (void) const
+\item 
+void \mbox{\hyperlink{classStateTable_a83f243debe3fc0610f70007aca88d8bd}{Set\+Automatic\+Advance}} (bool automatic\+Advance)
+\item 
+{\footnotesize template$<$class \+\_\+element\+Type $>$ }\\\mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{State\+Data\+Id}} \mbox{\hyperlink{classStateTable_ac18016ca07584d604d2b99f58a5cadd3}{New\+Element}} (const std\+::string \&name=\char`\"{}\char`\"{}, \+\_\+element\+Type $\ast$element=0)
+\item 
+{\footnotesize template$<$class \+\_\+element\+Type $>$ }\\void \mbox{\hyperlink{classStateTable_a08a58469c3120abc35cbfdcf4db53b4a}{Add\+Data}} (\+\_\+element\+Type \&element, const std\+::string \&name=\char`\"{}\char`\"{})
+\item 
+{\footnotesize template$<$class \+\_\+element\+Type $>$ }\\\mbox{\hyperlink{classStateTable_1_1AccessorBase}{State\+Table\+::\+Accessor\+Base}} $\ast$ \mbox{\hyperlink{classStateTable_a1347fbfc995b40827b5bdbbba3229fd4}{Get\+Accessor\+By\+Instance}} (const \+\_\+element\+Type \&element) const
+\item 
+\mbox{\hyperlink{classStateTable_1_1AccessorBase}{State\+Table\+::\+Accessor\+Base}} $\ast$ \mbox{\hyperlink{classStateTable_aca33b34312cc5602c6eb116264182889}{Get\+Accessor\+By\+Name}} (const std\+::string \&name) const
+\item 
+\mbox{\Hypertarget{classStateTable_aa22caf1501f540ce3440466d44656dc2}\label{classStateTable_aa22caf1501f540ce3440466d44656dc2}} 
+\mbox{\hyperlink{classStateTable_1_1AccessorBase}{State\+Table\+::\+Accessor\+Base}} $\ast$ {\bfseries Get\+Accessor\+By\+Name} (const char $\ast$name) const
+\item 
+\mbox{\hyperlink{classStateTable_1_1AccessorBase}{State\+Table\+::\+Accessor\+Base}} $\ast$ \mbox{\hyperlink{classStateTable_a311b174897afa7afc17ade0a78296c21}{Get\+Accessor\+By\+Id}} (const size\+\_\+t id) const
+\item 
+\mbox{\hyperlink{classStateIndex}{State\+Index}} \mbox{\hyperlink{classStateTable_aecdfc4b2d66cf58eab3d05959a90c4cc}{Get\+Index\+Writer}} (void) const
+\item 
+void \mbox{\hyperlink{classStateTable_a7f8a7fe7c3f765a218e0a27f1328de04}{Start}} (void)
+\item 
+void \mbox{\hyperlink{classStateTable_adbdd330d8a7cabe5f121ac0c091f4ed6}{Start\+If\+Automatic}} (void)
+\item 
+bool \mbox{\hyperlink{classStateTable_a4f711193e359de27338e7cd235a18e18}{Started}} (void) const
+\item 
+void \mbox{\hyperlink{classStateTable_a91e8ea7d29e5e87d9d94b606be799c96}{Advance}} (void)
+\item 
+void \mbox{\hyperlink{classStateTable_ab4facbda7129847a9b59d9f248d049e2}{Advance\+If\+Automatic}} (void)
+\item 
+bool \mbox{\hyperlink{classStateTable_a2ef6c39fbd1b6800760fb2f77a6f02a6}{Replay\+Advance}} (void)
+\item 
+double \mbox{\hyperlink{classStateTable_a14a85a28b62969973be214febc1c51ac}{Get\+Tic}} (void) const
+\item 
+\mbox{\Hypertarget{classStateTable_afd5dd5b69a677dcb8e67c33986d34245}\label{classStateTable_afd5dd5b69a677dcb8e67c33986d34245}} 
+double {\bfseries Get\+Toc} (void) const
+\item 
+\mbox{\Hypertarget{classStateTable_ae9fbee21b75209a26a9fcc41f99bcf76}\label{classStateTable_ae9fbee21b75209a26a9fcc41f99bcf76}} 
+size\+\_\+t {\bfseries Get\+History\+Length} (void) const
+\item 
+\mbox{\Hypertarget{classStateTable_a10ed8b01fe6f12f33be9682978031c99}\label{classStateTable_a10ed8b01fe6f12f33be9682978031c99}} 
+size\+\_\+t {\bfseries Get\+Number\+Of\+Elements} (void) const
+\item 
+double \mbox{\hyperlink{classStateTable_ae17dcff720714fac154a30303305b096}{Get\+Average\+Period}} (void) const
+\item 
+void \mbox{\hyperlink{classStateTable_ad234f57d41a9b8ccb3b9cf917c3579ef}{To\+Stream}} (std\+::ostream \&out) const
+\item 
+const std\+::string \& \mbox{\hyperlink{classStateTable_a75395b16ba552a3771f0d29094496628}{Get\+Name}} (void) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStateTable_a9f7e8805a55cbf1c783d84c8f3cd4aef}\label{classStateTable_a9f7e8805a55cbf1c783d84c8f3cd4aef}} 
+double {\bfseries Tic}
+\item 
+\mbox{\Hypertarget{classStateTable_a8d6bdb403eb83f0a9ed79cd7c0e32ab9}\label{classStateTable_a8d6bdb403eb83f0a9ed79cd7c0e32ab9}} 
+double {\bfseries Toc}
+\item 
+double \mbox{\hyperlink{classStateTable_aaa03a2e2e533ceb2fb7978cf12a9e3ad}{Period}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classStateTable_ae6d3bdc8b8e31424b5f0270a67ca6fe6}{Write}} (\mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{State\+Data\+Id}} id, const std\+::any \&p\+Data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classStateTable_a44636dbf4c63ed85246a157fd05df997}{m\+Started}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classStateTable_a046509023ddab57833b80771c83f7166}{History\+Length}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classStateTable_a6db35f7a8bba0015f46a9338e35125de}{Index\+Writer}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classStateTable_a79e12909e16872ee019f04d71cb9fb5c}{Index\+Reader}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classStateTable_a64772bd166fb293d9f94b8fc9f5dc672}{Index\+Delayed}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classStateTable_ae63be5a386c3cd4bfd4ee7e18819b3ce}{Delay}}
+\item 
+bool \mbox{\hyperlink{classStateTable_ab254dd5b1146701225c46d930e93b5fd}{Automatic\+Advance\+Flag}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classStateArrayBase}{State\+Array\+Base}} $\ast$ $>$ \mbox{\hyperlink{classStateTable_af965b16d5576d7e99ab3670d524959e9}{State\+Vector}}
+\item 
+std\+::vector$<$ std\+::any $>$ \mbox{\hyperlink{classStateTable_a33cb1a87888ebbd0b80273bd4ab343b2}{State\+Vector\+Elements}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classStateTable_a85a1f74617ae2f3ef511b88910454e7e}{State\+Vector\+Data\+Names}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classStateTable_1_1AccessorBase}{Accessor\+Base}} $\ast$ $>$ \mbox{\hyperlink{classStateTable_abe2b248b5bc1a23e91d2361a1d59b5a2}{State\+Vector\+Accessors}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{State\+Index\+::\+Time\+Ticks\+Type}} $>$ \mbox{\hyperlink{classStateTable_a4d846675c976f7109b34d8ec45eb5147}{Ticks}}
+\item 
+\mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{State\+Data\+Id}} \mbox{\hyperlink{classStateTable_ada18475d20e3dcbcc2d6f91d8ad52c1d}{Tic\+Id}}
+\item 
+\mbox{\Hypertarget{classStateTable_a0f21a28e36aa17303967dde4b6d03e88}\label{classStateTable_a0f21a28e36aa17303967dde4b6d03e88}} 
+\mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{State\+Data\+Id}} {\bfseries Toc\+Id}
+\item 
+\mbox{\Hypertarget{classStateTable_abc85be5dbd14a5135687ba2be6306c7f}\label{classStateTable_abc85be5dbd14a5135687ba2be6306c7f}} 
+\mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{State\+Data\+Id}} {\bfseries Period\+Id}
+\item 
+\mbox{\hyperlink{classTimeServer}{Time\+Server}} $\ast$ \mbox{\hyperlink{classStateTable_a2cee497d8a7d161771f144d9637a4e63}{Clock\+Server}}
+\item 
+double \mbox{\hyperlink{classStateTable_a965101bb9d37ac3cc488853211492260}{Sum\+Of\+Periods}}
+\item 
+double \mbox{\hyperlink{classStateTable_ac490ad27a996f8b859185053667e1b64}{Average\+Period}}
+\item 
+std\+::string \mbox{\hyperlink{classStateTable_a1e92786872880fb629159bbb34674af1}{Name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStateTable_a9e7428c7489be69df4aaa8652a049d8f}\label{classStateTable_a9e7428c7489be69df4aaa8652a049d8f}} 
+\index{StateTable@{StateTable}!StateTable@{StateTable}}
+\index{StateTable@{StateTable}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{StateTable()}{StateTable()}}
+{\footnotesize\ttfamily State\+Table\+::\+State\+Table (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+Constructor. Constructs a state table with a default size of 256 rows. \mbox{\Hypertarget{classStateTable_ab425e45d6015c555c203d65748a58b50}\label{classStateTable_ab425e45d6015c555c203d65748a58b50}} 
+\index{StateTable@{StateTable}!````~StateTable@{$\sim$StateTable}}
+\index{````~StateTable@{$\sim$StateTable}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{$\sim$StateTable()}{~StateTable()}}
+{\footnotesize\ttfamily State\+Table\+::$\sim$\+State\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStateTable_a08a58469c3120abc35cbfdcf4db53b4a}\label{classStateTable_a08a58469c3120abc35cbfdcf4db53b4a}} 
+\index{StateTable@{StateTable}!AddData@{AddData}}
+\index{AddData@{AddData}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{AddData()}{AddData()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+void State\+Table\+::\+Add\+Data (\begin{DoxyParamCaption}\item[{\+\_\+element\+Type \&}]{element,  }\item[{const std\+::string \&}]{name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add an element to the table (alternative to New\+Element). \mbox{\Hypertarget{classStateTable_a91e8ea7d29e5e87d9d94b606be799c96}\label{classStateTable_a91e8ea7d29e5e87d9d94b606be799c96}} 
+\index{StateTable@{StateTable}!Advance@{Advance}}
+\index{Advance@{Advance}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{Advance()}{Advance()}}
+{\footnotesize\ttfamily void State\+Table\+::\+Advance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Advance the pointers of the circular buffer. Note that since there is only a single writer, it is not necessary to use mutual exclusion primitives; the critical section can be handled by updating (incrementing) the write index before the read index. \mbox{\Hypertarget{classStateTable_ab4facbda7129847a9b59d9f248d049e2}\label{classStateTable_ab4facbda7129847a9b59d9f248d049e2}} 
+\index{StateTable@{StateTable}!AdvanceIfAutomatic@{AdvanceIfAutomatic}}
+\index{AdvanceIfAutomatic@{AdvanceIfAutomatic}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{AdvanceIfAutomatic()}{AdvanceIfAutomatic()}}
+{\footnotesize\ttfamily void State\+Table\+::\+Advance\+If\+Automatic (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Advance if automatic advance is set and does nothing otherwise. \mbox{\Hypertarget{classStateTable_a5007129d05a25f5b7dc3d65350a53df7}\label{classStateTable_a5007129d05a25f5b7dc3d65350a53df7}} 
+\index{StateTable@{StateTable}!AutomaticAdvance@{AutomaticAdvance}}
+\index{AutomaticAdvance@{AutomaticAdvance}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{AutomaticAdvance()}{AutomaticAdvance()}}
+{\footnotesize\ttfamily const bool \& State\+Table\+::\+Automatic\+Advance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get method for auto advance flag. See Automatic\+Advance\+Flag \mbox{\Hypertarget{classStateTable_a311b174897afa7afc17ade0a78296c21}\label{classStateTable_a311b174897afa7afc17ade0a78296c21}} 
+\index{StateTable@{StateTable}!GetAccessorById@{GetAccessorById}}
+\index{GetAccessorById@{GetAccessorById}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{GetAccessorById()}{GetAccessorById()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStateTable_1_1AccessorBase}{State\+Table\+::\+Accessor\+Base}} $\ast$ State\+Table\+::\+Get\+Accessor\+By\+Id (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{id }\end{DoxyParamCaption}) const}
+
+Return pointer to accessor functions for the state data element. 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id of state data element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to accessor class (0 if not found) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStateTable_a1347fbfc995b40827b5bdbbba3229fd4}\label{classStateTable_a1347fbfc995b40827b5bdbbba3229fd4}} 
+\index{StateTable@{StateTable}!GetAccessorByInstance@{GetAccessorByInstance}}
+\index{GetAccessorByInstance@{GetAccessorByInstance}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{GetAccessorByInstance()}{GetAccessorByInstance()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+\mbox{\hyperlink{classStateTable_1_1AccessorBase}{State\+Table\+::\+Accessor\+Base}} $\ast$ State\+Table\+::\+Get\+Accessor\+By\+Instance (\begin{DoxyParamCaption}\item[{const \+\_\+element\+Type \&}]{element }\end{DoxyParamCaption}) const}
+
+Return pointer to the state data element specified by the id. This element is the same type as the state data table entry. $\ast$/ template $<$class \+\_\+element\+Type$>$ \+\_\+element\+Type $\ast$ Get\+State\+Data\+Element(\+State\+Data\+Id id) const \{ return State\+Vector\+Elements\mbox{[}id\mbox{]}; // WEIRD??? \}
+
+std\+::any Get\+State\+Vector\+Element(size\+\_\+t id) const \{ return State\+Vector\+Elements\mbox{[}id\mbox{]}; \} \begin{DoxyVerb}/*! Return pointer to accessor functions for the state data element.
+  \param element Pointer to state data element (i.e., working copy)
+  \returns Pointer to accessor class (0 if not found)
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classStateTable_aca33b34312cc5602c6eb116264182889}\label{classStateTable_aca33b34312cc5602c6eb116264182889}} 
+\index{StateTable@{StateTable}!GetAccessorByName@{GetAccessorByName}}
+\index{GetAccessorByName@{GetAccessorByName}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{GetAccessorByName()}{GetAccessorByName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStateTable_1_1AccessorBase}{State\+Table\+::\+Accessor\+Base}} $\ast$ State\+Table\+::\+Get\+Accessor\+By\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+Return pointer to accessor functions for the state data element. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of state data element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to accessor class (0 if not found) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStateTable_ae17dcff720714fac154a30303305b096}\label{classStateTable_ae17dcff720714fac154a30303305b096}} 
+\index{StateTable@{StateTable}!GetAveragePeriod@{GetAveragePeriod}}
+\index{GetAveragePeriod@{GetAveragePeriod}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{GetAveragePeriod()}{GetAveragePeriod()}}
+{\footnotesize\ttfamily double State\+Table\+::\+Get\+Average\+Period (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the moving average of the measured period (i.\+e., average of last History\+Length values). \mbox{\Hypertarget{classStateTable_abfb517d2bdf40ef2a4b25c1a8201d9c0}\label{classStateTable_abfb517d2bdf40ef2a4b25c1a8201d9c0}} 
+\index{StateTable@{StateTable}!GetIndexDelayed@{GetIndexDelayed}}
+\index{GetIndexDelayed@{GetIndexDelayed}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{GetIndexDelayed()}{GetIndexDelayed()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStateIndex}{State\+Index}} State\+Table\+::\+Get\+Index\+Delayed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Get a handle for data to be used by a reader with a given delay. All the const methods, that can be called from a reader and writer. \mbox{\Hypertarget{classStateTable_a220b61f2bb044b2f54a02fbb00fad2db}\label{classStateTable_a220b61f2bb044b2f54a02fbb00fad2db}} 
+\index{StateTable@{StateTable}!GetIndexReader@{GetIndexReader}}
+\index{GetIndexReader@{GetIndexReader}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{GetIndexReader()}{GetIndexReader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStateIndex}{State\+Index}} State\+Table\+::\+Get\+Index\+Reader (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Get a handle for data to be used by a reader. All the const methods, that can be called from a reader and writer. \mbox{\Hypertarget{classStateTable_aecdfc4b2d66cf58eab3d05959a90c4cc}\label{classStateTable_aecdfc4b2d66cf58eab3d05959a90c4cc}} 
+\index{StateTable@{StateTable}!GetIndexWriter@{GetIndexWriter}}
+\index{GetIndexWriter@{GetIndexWriter}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{GetIndexWriter()}{GetIndexWriter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStateIndex}{State\+Index}} State\+Table\+::\+Get\+Index\+Writer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Get a handle for data to be used by a writer \mbox{\Hypertarget{classStateTable_a75395b16ba552a3771f0d29094496628}\label{classStateTable_a75395b16ba552a3771f0d29094496628}} 
+\index{StateTable@{StateTable}!GetName@{GetName}}
+\index{GetName@{GetName}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily const std\+::string \& State\+Table\+::\+Get\+Name (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+For debugging, dumps some values of the current data table to output stream. $\ast$/ void Debug(std\+::ostream \& out, unsigned int $\ast$ list\+Column, unsigned int number) const;
+
+/$\ast$! This method is to dump the state data table in the csv format, allowing easy import into matlab. Assumes that individual columns are also printed in csv format. By default print all rows, if non\+Zero\+Only == true then print only those rows which have a nonzero Ticks value i.\+e, those rows that have been written to at least once. / void CSVWrite(std\+::ostream \& out, bool non\+Zero\+Only = false); void CSVWrite(std\+::ostream \& out, unsigned int $\ast$ list\+Column, unsigned int number, bool non\+Zero\+Only = false);
+
+void CSVWrite(std\+::ostream \& out, mts\+Generic\+Object $\ast$$\ast$ list\+Column, unsigned int number, bool non\+Zero\+Only = false); \begin{DoxyVerb}/*! Return the name of this state table. 
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classStateTable_a14a85a28b62969973be214febc1c51ac}\label{classStateTable_a14a85a28b62969973be214febc1c51ac}} 
+\index{StateTable@{StateTable}!GetTic@{GetTic}}
+\index{GetTic@{GetTic}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{GetTic()}{GetTic()}}
+{\footnotesize\ttfamily double State\+Table\+::\+Get\+Tic (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Cleanup called when the task is being stopped. \mbox{\Hypertarget{classStateTable_ac18016ca07584d604d2b99f58a5cadd3}\label{classStateTable_ac18016ca07584d604d2b99f58a5cadd3}} 
+\index{StateTable@{StateTable}!NewElement@{NewElement}}
+\index{NewElement@{NewElement}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{NewElement()}{NewElement()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+\mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{State\+Data\+Id}} State\+Table\+::\+New\+Element (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{\+\_\+element\+Type $\ast$}]{element = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Check if the signal has been registered. $\ast$/ int Get\+State\+Vector\+ID(const std\+::string \& data\+Name) const; \begin{DoxyVerb}/*! Add an element to the table. Should be called during startup
+  of a real time loop.  All the non-const methods, that can be
+  called from a writer only. Returns index of data within state
+  data table. 
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classStateTable_a2ef6c39fbd1b6800760fb2f77a6f02a6}\label{classStateTable_a2ef6c39fbd1b6800760fb2f77a6f02a6}} 
+\index{StateTable@{StateTable}!ReplayAdvance@{ReplayAdvance}}
+\index{ReplayAdvance@{ReplayAdvance}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{ReplayAdvance()}{ReplayAdvance()}}
+{\footnotesize\ttfamily bool State\+Table\+::\+Replay\+Advance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Advance for replay mode, be very careful this should only be used in replay mode as this method only increments the reader index. \mbox{\Hypertarget{classStateTable_a83f243debe3fc0610f70007aca88d8bd}\label{classStateTable_a83f243debe3fc0610f70007aca88d8bd}} 
+\index{StateTable@{StateTable}!SetAutomaticAdvance@{SetAutomaticAdvance}}
+\index{SetAutomaticAdvance@{SetAutomaticAdvance}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{SetAutomaticAdvance()}{SetAutomaticAdvance()}}
+{\footnotesize\ttfamily void State\+Table\+::\+Set\+Automatic\+Advance (\begin{DoxyParamCaption}\item[{bool}]{automatic\+Advance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set method for auto advance flag. See Auto\+Advance\+Flag. \mbox{\Hypertarget{classStateTable_ae94b616a9b5ea5cc118ded53db405f64}\label{classStateTable_ae94b616a9b5ea5cc118ded53db405f64}} 
+\index{StateTable@{StateTable}!SetDelay@{SetDelay}}
+\index{SetDelay@{SetDelay}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{SetDelay()}{SetDelay()}}
+{\footnotesize\ttfamily size\+\_\+t State\+Table\+::\+Set\+Delay (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+Delay }\end{DoxyParamCaption})}
+
+Set delay in number of rows. \mbox{\Hypertarget{classStateTable_a8fe656f64070637992347a5476b6aecb}\label{classStateTable_a8fe656f64070637992347a5476b6aecb}} 
+\index{StateTable@{StateTable}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{SetSize()}{SetSize()}}
+{\footnotesize\ttfamily bool State\+Table\+::\+Set\+Size (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Method to change the size of the table \mbox{\Hypertarget{classStateTable_a7f8a7fe7c3f765a218e0a27f1328de04}\label{classStateTable_a7f8a7fe7c3f765a218e0a27f1328de04}} 
+\index{StateTable@{StateTable}!Start@{Start}}
+\index{Start@{Start}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void State\+Table\+::\+Start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Start the current cycle. This just records the starting timestamp (Tic). \mbox{\Hypertarget{classStateTable_a4f711193e359de27338e7cd235a18e18}\label{classStateTable_a4f711193e359de27338e7cd235a18e18}} 
+\index{StateTable@{StateTable}!Started@{Started}}
+\index{Started@{Started}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{Started()}{Started()}}
+{\footnotesize\ttfamily bool State\+Table\+::\+Started (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check if state table is \char`\"{}started\char`\"{}, i.\+e. between \mbox{\hyperlink{classStateTable_a7f8a7fe7c3f765a218e0a27f1328de04}{Start()}} and \mbox{\hyperlink{classStateTable_a91e8ea7d29e5e87d9d94b606be799c96}{Advance()}} calls. \mbox{\Hypertarget{classStateTable_adbdd330d8a7cabe5f121ac0c091f4ed6}\label{classStateTable_adbdd330d8a7cabe5f121ac0c091f4ed6}} 
+\index{StateTable@{StateTable}!StartIfAutomatic@{StartIfAutomatic}}
+\index{StartIfAutomatic@{StartIfAutomatic}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{StartIfAutomatic()}{StartIfAutomatic()}}
+{\footnotesize\ttfamily void State\+Table\+::\+Start\+If\+Automatic (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Start if automatic advance is set and does nothing otherwise. \mbox{\Hypertarget{classStateTable_ad234f57d41a9b8ccb3b9cf917c3579ef}\label{classStateTable_ad234f57d41a9b8ccb3b9cf917c3579ef}} 
+\index{StateTable@{StateTable}!ToStream@{ToStream}}
+\index{ToStream@{ToStream}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{ToStream()}{ToStream()}}
+{\footnotesize\ttfamily void State\+Table\+::\+To\+Stream (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out }\end{DoxyParamCaption}) const}
+
+For debugging, dumps the current data table to output stream. \mbox{\Hypertarget{classStateTable_afa5d2a5cdc2dbbf30c2e415f3d935779}\label{classStateTable_afa5d2a5cdc2dbbf30c2e415f3d935779}} 
+\index{StateTable@{StateTable}!ValidateReadIndex@{ValidateReadIndex}}
+\index{ValidateReadIndex@{ValidateReadIndex}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{ValidateReadIndex()}{ValidateReadIndex()}}
+{\footnotesize\ttfamily bool State\+Table\+::\+Validate\+Read\+Index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStateIndex}{State\+Index}} \&}]{time\+Index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Verifies if the data is valid. \mbox{\Hypertarget{classStateTable_ae6d3bdc8b8e31424b5f0270a67ca6fe6}\label{classStateTable_ae6d3bdc8b8e31424b5f0270a67ca6fe6}} 
+\index{StateTable@{StateTable}!Write@{Write}}
+\index{Write@{Write}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily bool State\+Table\+::\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{State\+Data\+Id}}}]{id,  }\item[{const std\+::any \&}]{p\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Write specified data. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classStateTable_ab254dd5b1146701225c46d930e93b5fd}\label{classStateTable_ab254dd5b1146701225c46d930e93b5fd}} 
+\index{StateTable@{StateTable}!AutomaticAdvanceFlag@{AutomaticAdvanceFlag}}
+\index{AutomaticAdvanceFlag@{AutomaticAdvanceFlag}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{AutomaticAdvanceFlag}{AutomaticAdvanceFlag}}
+{\footnotesize\ttfamily bool State\+Table\+::\+Automatic\+Advance\+Flag\hspace{0.3cm}{\ttfamily [protected]}}
+
+Automatic advance flag. This flag is used by the method Advance\+If\+Automatic to decide if this state table should advance or not. The method Advance\+Is\+Automatic is used by mts\+Task on all the registered state tables. If a user wishes to Advance the state table manually, he or she will have to set this flag to false (see Set\+Automatic\+Advance). This flag is set to true by default. \mbox{\Hypertarget{classStateTable_ac490ad27a996f8b859185053667e1b64}\label{classStateTable_ac490ad27a996f8b859185053667e1b64}} 
+\index{StateTable@{StateTable}!AveragePeriod@{AveragePeriod}}
+\index{AveragePeriod@{AveragePeriod}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{AveragePeriod}{AveragePeriod}}
+{\footnotesize\ttfamily double State\+Table\+::\+Average\+Period\hspace{0.3cm}{\ttfamily [protected]}}
+
+The average period over the last History\+Length samples. \mbox{\Hypertarget{classStateTable_a2cee497d8a7d161771f144d9637a4e63}\label{classStateTable_a2cee497d8a7d161771f144d9637a4e63}} 
+\index{StateTable@{StateTable}!ClockServer@{ClockServer}}
+\index{ClockServer@{ClockServer}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{ClockServer}{ClockServer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTimeServer}{Time\+Server}}$\ast$ State\+Table\+::\+Clock\+Server\hspace{0.3cm}{\ttfamily [protected]}}
+
+The time server used to provide absolute and relative times. \mbox{\Hypertarget{classStateTable_ae63be5a386c3cd4bfd4ee7e18819b3ce}\label{classStateTable_ae63be5a386c3cd4bfd4ee7e18819b3ce}} 
+\index{StateTable@{StateTable}!Delay@{Delay}}
+\index{Delay@{Delay}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{Delay}{Delay}}
+{\footnotesize\ttfamily size\+\_\+t State\+Table\+::\+Delay\hspace{0.3cm}{\ttfamily [protected]}}
+
+Delay used for Get\+Index\+Delayed and Get\+Delayed. In number of rows in state tables. \mbox{\Hypertarget{classStateTable_a046509023ddab57833b80771c83f7166}\label{classStateTable_a046509023ddab57833b80771c83f7166}} 
+\index{StateTable@{StateTable}!HistoryLength@{HistoryLength}}
+\index{HistoryLength@{HistoryLength}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{HistoryLength}{HistoryLength}}
+{\footnotesize\ttfamily size\+\_\+t State\+Table\+::\+History\+Length\hspace{0.3cm}{\ttfamily [protected]}}
+
+The number of rows of the state data table. \mbox{\Hypertarget{classStateTable_a64772bd166fb293d9f94b8fc9f5dc672}\label{classStateTable_a64772bd166fb293d9f94b8fc9f5dc672}} 
+\index{StateTable@{StateTable}!IndexDelayed@{IndexDelayed}}
+\index{IndexDelayed@{IndexDelayed}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{IndexDelayed}{IndexDelayed}}
+{\footnotesize\ttfamily size\+\_\+t State\+Table\+::\+Index\+Delayed\hspace{0.3cm}{\ttfamily [protected]}}
+
+The index of the delayed reader in the table. \mbox{\Hypertarget{classStateTable_a79e12909e16872ee019f04d71cb9fb5c}\label{classStateTable_a79e12909e16872ee019f04d71cb9fb5c}} 
+\index{StateTable@{StateTable}!IndexReader@{IndexReader}}
+\index{IndexReader@{IndexReader}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{IndexReader}{IndexReader}}
+{\footnotesize\ttfamily size\+\_\+t State\+Table\+::\+Index\+Reader\hspace{0.3cm}{\ttfamily [protected]}}
+
+The index of the reader in the table. \mbox{\Hypertarget{classStateTable_a6db35f7a8bba0015f46a9338e35125de}\label{classStateTable_a6db35f7a8bba0015f46a9338e35125de}} 
+\index{StateTable@{StateTable}!IndexWriter@{IndexWriter}}
+\index{IndexWriter@{IndexWriter}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{IndexWriter}{IndexWriter}}
+{\footnotesize\ttfamily size\+\_\+t State\+Table\+::\+Index\+Writer\hspace{0.3cm}{\ttfamily [protected]}}
+
+The index of the writer in the data table. \mbox{\Hypertarget{classStateTable_a44636dbf4c63ed85246a157fd05df997}\label{classStateTable_a44636dbf4c63ed85246a157fd05df997}} 
+\index{StateTable@{StateTable}!mStarted@{mStarted}}
+\index{mStarted@{mStarted}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{mStarted}{mStarted}}
+{\footnotesize\ttfamily bool State\+Table\+::m\+Started\hspace{0.3cm}{\ttfamily [protected]}}
+
+Flag to indicate if the table has started. True between \mbox{\hyperlink{classStateTable_a7f8a7fe7c3f765a218e0a27f1328de04}{Start()}} and \mbox{\hyperlink{classStateTable_a91e8ea7d29e5e87d9d94b606be799c96}{Advance()}} calls, false otherwise. \mbox{\Hypertarget{classStateTable_a1e92786872880fb629159bbb34674af1}\label{classStateTable_a1e92786872880fb629159bbb34674af1}} 
+\index{StateTable@{StateTable}!Name@{Name}}
+\index{Name@{Name}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily std\+::string State\+Table\+::\+Name\hspace{0.3cm}{\ttfamily [protected]}}
+
+The name of this state table. \mbox{\Hypertarget{classStateTable_aaa03a2e2e533ceb2fb7978cf12a9e3ad}\label{classStateTable_aaa03a2e2e533ceb2fb7978cf12a9e3ad}} 
+\index{StateTable@{StateTable}!Period@{Period}}
+\index{Period@{Period}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{Period}{Period}}
+{\footnotesize\ttfamily double State\+Table\+::\+Period}
+
+The measured task period (difference between current Tic and previous Tic). \mbox{\Hypertarget{classStateTable_af965b16d5576d7e99ab3670d524959e9}\label{classStateTable_af965b16d5576d7e99ab3670d524959e9}} 
+\index{StateTable@{StateTable}!StateVector@{StateVector}}
+\index{StateVector@{StateVector}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{StateVector}{StateVector}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classStateArrayBase}{State\+Array\+Base}}$\ast$$>$ State\+Table\+::\+State\+Vector\hspace{0.3cm}{\ttfamily [protected]}}
+
+The vector contains pointers to individual columns. \mbox{\Hypertarget{classStateTable_abe2b248b5bc1a23e91d2361a1d59b5a2}\label{classStateTable_abe2b248b5bc1a23e91d2361a1d59b5a2}} 
+\index{StateTable@{StateTable}!StateVectorAccessors@{StateVectorAccessors}}
+\index{StateVectorAccessors@{StateVectorAccessors}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{StateVectorAccessors}{StateVectorAccessors}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classStateTable_1_1AccessorBase}{Accessor\+Base}} $\ast$$>$ State\+Table\+::\+State\+Vector\+Accessors\hspace{0.3cm}{\ttfamily [protected]}}
+
+The vector contains pointers to the accessor methods (e.\+g., Get, Get\+Latest) from which command objects are created. \mbox{\Hypertarget{classStateTable_a85a1f74617ae2f3ef511b88910454e7e}\label{classStateTable_a85a1f74617ae2f3ef511b88910454e7e}} 
+\index{StateTable@{StateTable}!StateVectorDataNames@{StateVectorDataNames}}
+\index{StateVectorDataNames@{StateVectorDataNames}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{StateVectorDataNames}{StateVectorDataNames}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ State\+Table\+::\+State\+Vector\+Data\+Names\hspace{0.3cm}{\ttfamily [protected]}}
+
+The columns entries can be accessed by name. This vector stores the names corresponding to the columns. \mbox{\Hypertarget{classStateTable_a33cb1a87888ebbd0b80273bd4ab343b2}\label{classStateTable_a33cb1a87888ebbd0b80273bd4ab343b2}} 
+\index{StateTable@{StateTable}!StateVectorElements@{StateVectorElements}}
+\index{StateVectorElements@{StateVectorElements}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{StateVectorElements}{StateVectorElements}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::any$>$ State\+Table\+::\+State\+Vector\+Elements\hspace{0.3cm}{\ttfamily [protected]}}
+
+The vector contains pointers to the current values of elements that are to be added to the state when we advance. \mbox{\Hypertarget{classStateTable_a965101bb9d37ac3cc488853211492260}\label{classStateTable_a965101bb9d37ac3cc488853211492260}} 
+\index{StateTable@{StateTable}!SumOfPeriods@{SumOfPeriods}}
+\index{SumOfPeriods@{SumOfPeriods}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{SumOfPeriods}{SumOfPeriods}}
+{\footnotesize\ttfamily double State\+Table\+::\+Sum\+Of\+Periods\hspace{0.3cm}{\ttfamily [protected]}}
+
+Periodicist Statistics
+
+The sum of all the periods (time differences between consecutive Tic values); used to compute average period. \mbox{\Hypertarget{classStateTable_ada18475d20e3dcbcc2d6f91d8ad52c1d}\label{classStateTable_ada18475d20e3dcbcc2d6f91d8ad52c1d}} 
+\index{StateTable@{StateTable}!TicId@{TicId}}
+\index{TicId@{TicId}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{TicId}{TicId}}
+{\footnotesize\ttfamily \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{State\+Data\+Id}} State\+Table\+::\+Tic\+Id\hspace{0.3cm}{\ttfamily [protected]}}
+
+The state table indices for Tic, Toc, and Period. \mbox{\Hypertarget{classStateTable_a4d846675c976f7109b34d8ec45eb5147}\label{classStateTable_a4d846675c976f7109b34d8ec45eb5147}} 
+\index{StateTable@{StateTable}!Ticks@{Ticks}}
+\index{Ticks@{Ticks}!StateTable@{StateTable}}
+\doxysubsubsection{\texorpdfstring{Ticks}{Ticks}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{State\+Index\+::\+Time\+Ticks\+Type}}$>$ State\+Table\+::\+Ticks\hspace{0.3cm}{\ttfamily [protected]}}
+
+The vector contains the time stamp in counts or ticks per period of the task that the state table is associated with. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{StateTable_8h}{State\+Table.\+h}}\item 
+src/\mbox{\hyperlink{StateTable_8cpp}{State\+Table.\+cpp}}\end{DoxyCompactItemize}

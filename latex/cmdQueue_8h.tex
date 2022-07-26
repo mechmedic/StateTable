@@ -1,0 +1,29 @@
+\hypertarget{cmdQueue_8h}{}\doxysection{src/cmd\+Queue.h File Reference}
+\label{cmdQueue_8h}\index{src/cmdQueue.h@{src/cmdQueue.h}}
+
+
+Header file for \textquotesingle{}\mbox{\hyperlink{classcmdQueue}{cmd\+Queue}}\textquotesingle{} (Command Queue) class. This class is based on \textquotesingle{}mts\+Queue\textquotesingle{} of the CISST library which is a queue that can be accessed in a thread-\/safe manner, assuming that there is only one reader and one writer and that pointer updates are atomic. Thus only one thread should call \textquotesingle{}Get\textquotesingle{} and one thread should call \textquotesingle{}Put\textquotesingle{} and one cmd\+Que is needed for each connection between the components. This queue is used to implement \textquotesingle{}Mail\+Box\textquotesingle{} of each software component where the commands and events are queued Created \+: 2022.\+07.\+06 Chunwoo Kim (CKim) Last Updated \+: 2022.\+07.\+06 Chunwoo Kim (CKim) Contact Info \+: \href{mailto:cwkim@kist.re.kr}{\texttt{ cwkim@kist.\+re.\+kr}}.  
+
+
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for cmd\+Queue.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{cmdQueue_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcmdQueue}{cmd\+Queue$<$ \+\_\+element\+Type $>$}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for \textquotesingle{}\mbox{\hyperlink{classcmdQueue}{cmd\+Queue}}\textquotesingle{} (Command Queue) class. This class is based on \textquotesingle{}mts\+Queue\textquotesingle{} of the CISST library which is a queue that can be accessed in a thread-\/safe manner, assuming that there is only one reader and one writer and that pointer updates are atomic. Thus only one thread should call \textquotesingle{}Get\textquotesingle{} and one thread should call \textquotesingle{}Put\textquotesingle{} and one cmd\+Que is needed for each connection between the components. This queue is used to implement \textquotesingle{}Mail\+Box\textquotesingle{} of each software component where the commands and events are queued Created \+: 2022.\+07.\+06 Chunwoo Kim (CKim) Last Updated \+: 2022.\+07.\+06 Chunwoo Kim (CKim) Contact Info \+: \href{mailto:cwkim@kist.re.kr}{\texttt{ cwkim@kist.\+re.\+kr}}. 
+

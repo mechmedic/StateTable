@@ -1,0 +1,42 @@
+\hypertarget{structAbsoluteTime}{}\doxysection{Absolute\+Time Struct Reference}
+\label{structAbsoluteTime}\index{AbsoluteTime@{AbsoluteTime}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structAbsoluteTime_aa809a8b3aabdffd27eeed84c410aa382}\label{structAbsoluteTime_aa809a8b3aabdffd27eeed84c410aa382}} 
+{\bfseries Absolute\+Time} (long seconds, long nanoseconds)
+\item 
+double \mbox{\hyperlink{structAbsoluteTime_a3fc691bb0ce6823769d9cde6d23f0de9}{To\+Seconds}} (void) const
+\item 
+void \mbox{\hyperlink{structAbsoluteTime_ab121ae5b23af0a7866eb5132b37a9421}{From\+Seconds}} (double time\+In\+Seconds)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structAbsoluteTime_ac7a6f8eced240bd3917dad3e63a9b63d}\label{structAbsoluteTime_ac7a6f8eced240bd3917dad3e63a9b63d}} 
+long {\bfseries sec}
+\item 
+\mbox{\Hypertarget{structAbsoluteTime_a894b543f10377aaad94f178d478ce25e}\label{structAbsoluteTime_a894b543f10377aaad94f178d478ce25e}} 
+long {\bfseries nsec}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structAbsoluteTime_ab121ae5b23af0a7866eb5132b37a9421}\label{structAbsoluteTime_ab121ae5b23af0a7866eb5132b37a9421}} 
+\index{AbsoluteTime@{AbsoluteTime}!FromSeconds@{FromSeconds}}
+\index{FromSeconds@{FromSeconds}!AbsoluteTime@{AbsoluteTime}}
+\doxysubsubsection{\texorpdfstring{FromSeconds()}{FromSeconds()}}
+{\footnotesize\ttfamily void Absolute\+Time\+::\+From\+Seconds (\begin{DoxyParamCaption}\item[{double}]{time\+In\+Seconds }\end{DoxyParamCaption})}
+
+Set from time in seconds using floating point double \mbox{\Hypertarget{structAbsoluteTime_a3fc691bb0ce6823769d9cde6d23f0de9}\label{structAbsoluteTime_a3fc691bb0ce6823769d9cde6d23f0de9}} 
+\index{AbsoluteTime@{AbsoluteTime}!ToSeconds@{ToSeconds}}
+\index{ToSeconds@{ToSeconds}!AbsoluteTime@{AbsoluteTime}}
+\doxysubsubsection{\texorpdfstring{ToSeconds()}{ToSeconds()}}
+{\footnotesize\ttfamily double Absolute\+Time\+::\+To\+Seconds (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Returns absolute time in seconds relative to Jan 1, 1970. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{TimeServer_8h}{Time\+Server.\+h}}\item 
+src/Time\+Server.\+cpp\end{DoxyCompactItemize}

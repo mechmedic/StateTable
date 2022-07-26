@@ -1,0 +1,127 @@
+\hypertarget{StateArray_8h_source}{}\doxysection{State\+Array.\+h}
+\label{StateArray_8h_source}\index{src/StateArray.h@{src/StateArray.h}}
+\mbox{\hyperlink{StateArray_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifndef STATEARRAY\_H}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define STATEARRAY\_H}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{StateArrayBase_8h}{StateArrayBase.h}}"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{comment}{// CKim -\/ Comments from CISST library!}}
+\DoxyCodeLine{24 \textcolor{comment}{// Individual state array classes can be created from an instance of}}
+\DoxyCodeLine{25 \textcolor{comment}{// the following template, where \_elementType represents the type of}}
+\DoxyCodeLine{26 \textcolor{comment}{// data used by the particular state element. It is assumed that}}
+\DoxyCodeLine{27 \textcolor{comment}{//  \_elementType is derived from mtsGenericObject.}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{template} <\textcolor{keyword}{class} \_elementType>}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classStateArray}{StateArray}} :\textcolor{keyword}{public} \mbox{\hyperlink{classStateArrayBase}{StateArrayBase}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t} index\_type;}
+\DoxyCodeLine{34     \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t} size\_type;}
+\DoxyCodeLine{35     \textcolor{keyword}{typedef} \_elementType value\_type;}
+\DoxyCodeLine{36     \textcolor{keyword}{typedef} std::vector<value\_type> VectorType;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{comment}{// CKim -\/ std::vector provides an interator}}
+\DoxyCodeLine{39     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} VectorType::iterator iterator;}
+\DoxyCodeLine{40     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} VectorType::const\_iterator const\_iterator;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{45     VectorType \mbox{\hyperlink{classStateArray_ad9d14336369cd61951593cba398decb4}{Data}};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{public}:}
+\DoxyCodeLine{49     \textcolor{keyword}{inline} \mbox{\hyperlink{classStateArray_a5cb857d8eae4eff45196edb44be97d96}{StateArray}}(\textcolor{keyword}{const} value\_type \& objectExample, size\_type size = 0):}
+\DoxyCodeLine{50         \mbox{\hyperlink{classStateArray_ad9d14336369cd61951593cba398decb4}{Data}}(size, objectExample)  \{\}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{53     \textcolor{keyword}{virtual} \mbox{\hyperlink{classStateArray_aa08c99c48ae17dc928e48ab15cbd93cd}{\string~StateArray}}() \{\}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{bool} SetDataSize(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} size)}
+\DoxyCodeLine{57     \{}
+\DoxyCodeLine{58         value\_type objectExample = \mbox{\hyperlink{classStateArray_ad9d14336369cd61951593cba398decb4}{Data}}[0];}
+\DoxyCodeLine{59         \textcolor{comment}{//\(\backslash\)todo add try catch for alloc exception}}
+\DoxyCodeLine{60         \mbox{\hyperlink{classStateArray_ad9d14336369cd61951593cba398decb4}{Data}}.resize(size, objectExample);}
+\DoxyCodeLine{61         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{67     \textcolor{keyword}{const} value\_type \& \mbox{\hyperlink{classStateArray_a15e4776d2754babf976db04d2595a69e}{Element}}(index\_type index)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classStateArray_ad9d14336369cd61951593cba398decb4}{Data}}[index]; \}}
+\DoxyCodeLine{68     value\_type \& \mbox{\hyperlink{classStateArray_a15e4776d2754babf976db04d2595a69e}{Element}}(index\_type index) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classStateArray_ad9d14336369cd61951593cba398decb4}{Data}}[index]; \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{comment}{//    /*! Overloaded [] operator. Returns data at index (of type mtsGenericObject).}}
+\DoxyCodeLine{71 \textcolor{comment}{//        Currently used for data collection (mtsCollectorState). */}}
+\DoxyCodeLine{72 \textcolor{comment}{//    inline value\_type \& operator[](index\_type index)\{ return Data[index]; \}}}
+\DoxyCodeLine{73 \textcolor{comment}{//    inline const value\_type \& operator[](index\_type index) const \{ return Data[index]; \}}}
+\DoxyCodeLine{74     \textcolor{keyword}{inline} \textcolor{keyword}{const} std::string operator[](index\_type index)\textcolor{keyword}{ const}}
+\DoxyCodeLine{75 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{76         std::ostringstream ostr;}
+\DoxyCodeLine{77         ostr << \mbox{\hyperlink{classStateArray_ad9d14336369cd61951593cba398decb4}{Data}}[index];}
+\DoxyCodeLine{78         \textcolor{keywordflow}{return} ostr.str();}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{comment}{//    /* Create the array of data. This is currently unused. */}}
+\DoxyCodeLine{82 \textcolor{comment}{//    inline mtsStateArrayBase * Create(const mtsGenericObject * objectExample,}}
+\DoxyCodeLine{83 \textcolor{comment}{//                                      size\_type size) \{}}
+\DoxyCodeLine{84 \textcolor{comment}{//        const value\_type * typedObjectExample = dynamic\_cast<const value\_type *>(objectExample);}}
+\DoxyCodeLine{85 \textcolor{comment}{//        if (typedObjectExample) \{}}
+\DoxyCodeLine{86 \textcolor{comment}{//            this-\/>Data.resize(size, *typedObjectExample);}}
+\DoxyCodeLine{87 \textcolor{comment}{//            this-\/>DataClassServices = objectExample-\/>Services();}}
+\DoxyCodeLine{88 \textcolor{comment}{//            CMN\_ASSERT(this-\/>DataClassServices);}}
+\DoxyCodeLine{89 \textcolor{comment}{//        \} else \{}}
+\DoxyCodeLine{90 \textcolor{comment}{//            CMN\_LOG\_INIT\_ERROR << "{}mtsStateArray: Create used with an object example of the wrong type, received: "{}}}
+\DoxyCodeLine{91 \textcolor{comment}{//                               << objectExample-\/>Services()-\/>GetName()}}
+\DoxyCodeLine{92 \textcolor{comment}{//                               << "{} while expecting "{}}}
+\DoxyCodeLine{93 \textcolor{comment}{//                               << value\_type::ClassServices()-\/>GetName()}}
+\DoxyCodeLine{94 \textcolor{comment}{//                               << std::endl;}}
+\DoxyCodeLine{95 \textcolor{comment}{//            return 0;}}
+\DoxyCodeLine{96 \textcolor{comment}{//        \}}}
+\DoxyCodeLine{97 \textcolor{comment}{//        return this;}}
+\DoxyCodeLine{98 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{102     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStateArray_ae97663bf6a0db75916ce8662cc4467b0}{Copy}}(index\_type indexTo, index\_type indexFrom) \{}
+\DoxyCodeLine{103         this-\/>Data[indexTo] = this-\/>Data[indexFrom];}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 }
+\DoxyCodeLine{116     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateArray_ac9028ef136b47f2eb89eb3963a6505f0}{Get}}(index\_type index, \textcolor{keyword}{const} std::any \& pData) \textcolor{keyword}{const};}
+\DoxyCodeLine{117     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateArray_ac7bed0c52016dc3abbc1758190f51e09}{Set}}(index\_type index, \textcolor{keyword}{const} std::any \& pData);}
+\DoxyCodeLine{119 \};}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{comment}{// CKim -\/ Implementation of Get and Set Method. Use std::any\_cast}}
+\DoxyCodeLine{122 \textcolor{comment}{// any\_cast<T>(std::any*) returns T* if successful or 0 if not.}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{125 \textcolor{keyword}{template} <\textcolor{keyword}{class} \_elementType>}
+\DoxyCodeLine{126 \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateArray_ac7bed0c52016dc3abbc1758190f51e09}{StateArray<\_elementType>::Set}}(index\_type index,  \textcolor{keyword}{const} std::any \& pData)}
+\DoxyCodeLine{127 \{}
+\DoxyCodeLine{128     \textcolor{comment}{// CKim -\/ Address of std::any and the actual data stored in std::any are different}}
+\DoxyCodeLine{129     \textcolor{comment}{// Use any\_cast<Type T>(\&any) to obtain pointer to actual data}}
+\DoxyCodeLine{130     \textcolor{keyword}{const} \_elementType* ptr;}
+\DoxyCodeLine{131     \textcolor{keywordflow}{try} \{    ptr = std::any\_cast<\_elementType*>(pData);     \}}
+\DoxyCodeLine{132     \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::bad\_any\_cast\& e)  \{}
+\DoxyCodeLine{133         std::cout << \textcolor{stringliteral}{"{}any\_cast error\(\backslash\)n"{}};    \textcolor{keywordflow}{return} \textcolor{keyword}{false};   \}}
+\DoxyCodeLine{134     Data[index] = *ptr;}
+\DoxyCodeLine{135     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{136 \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{keyword}{template} <\textcolor{keyword}{class} \_elementType>}
+\DoxyCodeLine{139 \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateArray_ac9028ef136b47f2eb89eb3963a6505f0}{StateArray<\_elementType>::Get}}(index\_type index, \textcolor{keyword}{const} std::any \& pData)\textcolor{keyword}{ const}}
+\DoxyCodeLine{140 \textcolor{keyword}{}\{}
+\DoxyCodeLine{141     \textcolor{comment}{// CKim -\/ Address of std::any and the actual data stored in std::any are different}}
+\DoxyCodeLine{142     \textcolor{comment}{// Use any\_cast<Type T>(\&any) to obtain pointer to actual data}}
+\DoxyCodeLine{143     \_elementType* ptr;}
+\DoxyCodeLine{144     \textcolor{keywordflow}{try} \{    ptr = std::any\_cast<\_elementType*>(pData);     \}}
+\DoxyCodeLine{145     \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::bad\_any\_cast\& e)  \{}
+\DoxyCodeLine{146         std::cout << \textcolor{stringliteral}{"{}any\_cast error\(\backslash\)n"{}};    \textcolor{keywordflow}{return} \textcolor{keyword}{false};   \}}
+\DoxyCodeLine{147     *ptr = Data[index];}
+\DoxyCodeLine{148     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{149 \}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STATEARRAY\_H}}
+\DoxyCodeLine{152 }
+
+\end{DoxyCode}

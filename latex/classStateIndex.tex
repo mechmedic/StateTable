@@ -1,0 +1,153 @@
+\hypertarget{classStateIndex}{}\doxysection{State\+Index Class Reference}
+\label{classStateIndex}\index{StateIndex@{StateIndex}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned long long int \mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{Time\+Ticks\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStateIndex_abbe5c6a35755b207a480902e76c6e82b}{State\+Index}} ()
+\item 
+\mbox{\hyperlink{classStateIndex_ac262d62f3a481d2c2d1741c2b490501e}{State\+Index}} (double timestamp, int index, \mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{Time\+Ticks\+Type}} ticks, int \mbox{\hyperlink{classStateIndex_a6e80f36ffd541d0d8976761ef4f5708e}{Length}})
+\item 
+\mbox{\hyperlink{classStateIndex_a4e2ada386005daf7d20ca553a8b94987}{$\sim$\+State\+Index}} ()
+\item 
+int \mbox{\hyperlink{classStateIndex_a6e80f36ffd541d0d8976761ef4f5708e}{Length}} (void) const
+\item 
+\mbox{\Hypertarget{classStateIndex_a330d5405acb8ff6fae76a7ab90c754d4}\label{classStateIndex_a330d5405acb8ff6fae76a7ab90c754d4}} 
+int {\bfseries Index} (void) const
+\item 
+\mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{Time\+Ticks\+Type}} \mbox{\hyperlink{classStateIndex_ab7652aa4b9c91cb8445b204423ae130a}{Ticks}} (void) const
+\item 
+\mbox{\hyperlink{classStateIndex}{State\+Index}} \& \mbox{\hyperlink{classStateIndex_ad088739544649e292749f7458ab82036}{operator-\/-\/}} ()
+\item 
+\mbox{\hyperlink{classStateIndex}{State\+Index}} \& \mbox{\hyperlink{classStateIndex_aae7f484329f267bb918e4ed3a200b021}{operator-\/=}} (int number)
+\item 
+\mbox{\hyperlink{classStateIndex}{State\+Index}} \mbox{\hyperlink{classStateIndex_a51f9b3cf922dc0dc2ff8532b7695d074}{operator-\/}} (int number)
+\item 
+bool \mbox{\hyperlink{classStateIndex_a307f5323380d90bae910d81fc892d9ea}{operator==}} (const \mbox{\hyperlink{classStateIndex}{State\+Index}} \&that) const
+\item 
+bool \mbox{\hyperlink{classStateIndex_af3e9600a15aff4b8e5a3c3e2d00ea031}{operator!=}} (const \mbox{\hyperlink{classStateIndex}{State\+Index}} \&that) const
+\item 
+virtual void \mbox{\hyperlink{classStateIndex_ac89273f0b174795f77950ae0332b8244}{To\+Stream}} (std\+::ostream \&output\+Stream) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{Time\+Index}}
+\item 
+\mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{Time\+Ticks\+Type}} \mbox{\hyperlink{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}{Time\+Ticks}}
+\item 
+int \mbox{\hyperlink{classStateIndex_ae2575653ded277935ca3fe9542aaaff1}{Buffer\+Length}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classStateIndex_a8a71882c46347a108ece3a93fe152f38}\label{classStateIndex_a8a71882c46347a108ece3a93fe152f38}} 
+\index{StateIndex@{StateIndex}!TimeTicksType@{TimeTicksType}}
+\index{TimeTicksType@{TimeTicksType}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{TimeTicksType}{TimeTicksType}}
+{\footnotesize\ttfamily typedef unsigned long long int \mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{State\+Index\+::\+Time\+Ticks\+Type}}}
+
+Time\+Ticks are typedef\textquotesingle{}ed as unsigned long long (64 bits) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStateIndex_abbe5c6a35755b207a480902e76c6e82b}\label{classStateIndex_abbe5c6a35755b207a480902e76c6e82b}} 
+\index{StateIndex@{StateIndex}!StateIndex@{StateIndex}}
+\index{StateIndex@{StateIndex}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{StateIndex()}{StateIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily State\+Index\+::\+State\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor. Does nothing. \mbox{\Hypertarget{classStateIndex_ac262d62f3a481d2c2d1741c2b490501e}\label{classStateIndex_ac262d62f3a481d2c2d1741c2b490501e}} 
+\index{StateIndex@{StateIndex}!StateIndex@{StateIndex}}
+\index{StateIndex@{StateIndex}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{StateIndex()}{StateIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily State\+Index\+::\+State\+Index (\begin{DoxyParamCaption}\item[{double}]{timestamp,  }\item[{int}]{index,  }\item[{\mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{Time\+Ticks\+Type}}}]{ticks,  }\item[{int}]{Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor. Does nothing. \mbox{\Hypertarget{classStateIndex_a4e2ada386005daf7d20ca553a8b94987}\label{classStateIndex_a4e2ada386005daf7d20ca553a8b94987}} 
+\index{StateIndex@{StateIndex}!````~StateIndex@{$\sim$StateIndex}}
+\index{````~StateIndex@{$\sim$StateIndex}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{$\sim$StateIndex()}{~StateIndex()}}
+{\footnotesize\ttfamily State\+Index\+::$\sim$\+State\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default destructor. Does nothing. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStateIndex_a6e80f36ffd541d0d8976761ef4f5708e}\label{classStateIndex_a6e80f36ffd541d0d8976761ef4f5708e}} 
+\index{StateIndex@{StateIndex}!Length@{Length}}
+\index{Length@{Length}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{Length()}{Length()}}
+{\footnotesize\ttfamily int State\+Index\+::\+Length (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The length of the circular buffer. \mbox{\Hypertarget{classStateIndex_af3e9600a15aff4b8e5a3c3e2d00ea031}\label{classStateIndex_af3e9600a15aff4b8e5a3c3e2d00ea031}} 
+\index{StateIndex@{StateIndex}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool State\+Index\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStateIndex}{State\+Index}} \&}]{that }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Overloaded operator \mbox{\Hypertarget{classStateIndex_a51f9b3cf922dc0dc2ff8532b7695d074}\label{classStateIndex_a51f9b3cf922dc0dc2ff8532b7695d074}} 
+\index{StateIndex@{StateIndex}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStateIndex}{State\+Index}} State\+Index\+::operator-\/ (\begin{DoxyParamCaption}\item[{int}]{number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Overloaded operator \mbox{\Hypertarget{classStateIndex_ad088739544649e292749f7458ab82036}\label{classStateIndex_ad088739544649e292749f7458ab82036}} 
+\index{StateIndex@{StateIndex}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStateIndex}{State\+Index}} \& State\+Index\+::operator-\/-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Note that the increment operators are not defined for this class, since we dont want future times. \mbox{\Hypertarget{classStateIndex_aae7f484329f267bb918e4ed3a200b021}\label{classStateIndex_aae7f484329f267bb918e4ed3a200b021}} 
+\index{StateIndex@{StateIndex}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStateIndex}{State\+Index}} \& State\+Index\+::operator-\/= (\begin{DoxyParamCaption}\item[{int}]{number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Overloaded operator \mbox{\Hypertarget{classStateIndex_a307f5323380d90bae910d81fc892d9ea}\label{classStateIndex_a307f5323380d90bae910d81fc892d9ea}} 
+\index{StateIndex@{StateIndex}!operator==@{operator==}}
+\index{operator==@{operator==}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool State\+Index\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStateIndex}{State\+Index}} \&}]{that }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The comparison operators \mbox{\Hypertarget{classStateIndex_ab7652aa4b9c91cb8445b204423ae130a}\label{classStateIndex_ab7652aa4b9c91cb8445b204423ae130a}} 
+\index{StateIndex@{StateIndex}!Ticks@{Ticks}}
+\index{Ticks@{Ticks}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{Ticks()}{Ticks()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{Time\+Ticks\+Type}} State\+Index\+::\+Ticks (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the ticks corresponding to the time. \mbox{\Hypertarget{classStateIndex_ac89273f0b174795f77950ae0332b8244}\label{classStateIndex_ac89273f0b174795f77950ae0332b8244}} 
+\index{StateIndex@{StateIndex}!ToStream@{ToStream}}
+\index{ToStream@{ToStream}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{ToStream()}{ToStream()}}
+{\footnotesize\ttfamily virtual void State\+Index\+::\+To\+Stream (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{output\+Stream }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Human readable text output 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classStateIndex_ae2575653ded277935ca3fe9542aaaff1}\label{classStateIndex_ae2575653ded277935ca3fe9542aaaff1}} 
+\index{StateIndex@{StateIndex}!BufferLength@{BufferLength}}
+\index{BufferLength@{BufferLength}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{BufferLength}{BufferLength}}
+{\footnotesize\ttfamily int State\+Index\+::\+Buffer\+Length}
+
+The size of the circular buffer. \mbox{\Hypertarget{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}\label{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}} 
+\index{StateIndex@{StateIndex}!TimeIndex@{TimeIndex}}
+\index{TimeIndex@{TimeIndex}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{TimeIndex}{TimeIndex}}
+{\footnotesize\ttfamily int State\+Index\+::\+Time\+Index}
+
+Base type $\ast$/ typedef mts\+Generic\+Object Base\+Type;
+
+private\+: /$\ast$! The index into the set of circular buffers corresponding to the time \mbox{\Hypertarget{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}\label{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}} 
+\index{StateIndex@{StateIndex}!TimeTicks@{TimeTicks}}
+\index{TimeTicks@{TimeTicks}!StateIndex@{StateIndex}}
+\doxysubsubsection{\texorpdfstring{TimeTicks}{TimeTicks}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{Time\+Ticks\+Type}} State\+Index\+::\+Time\+Ticks}
+
+The tick value corresponding to the time. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{StateIndex_8h}{State\+Index.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,153 @@
+\hypertarget{classcmdQueue}{}\doxysection{cmd\+Queue\texorpdfstring{$<$}{<} \+\_\+element\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classcmdQueue}\index{cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcmdQueue_a4223666a4f5f88ae698b523f5a549277}\label{classcmdQueue_a4223666a4f5f88ae698b523f5a549277}} 
+typedef \+\_\+element\+Type {\bfseries value\+\_\+type}
+\item 
+\mbox{\Hypertarget{classcmdQueue_acf347b72e4f8bf2ceca79bc648cbbca0}\label{classcmdQueue_acf347b72e4f8bf2ceca79bc648cbbca0}} 
+typedef value\+\_\+type $\ast$ {\bfseries pointer}
+\item 
+\mbox{\Hypertarget{classcmdQueue_ac6782ec2ab171f35e765abce5c7fcda9}\label{classcmdQueue_ac6782ec2ab171f35e765abce5c7fcda9}} 
+typedef std\+::atomic$<$ value\+\_\+type $\ast$ $>$ {\bfseries atomic\+Pointer}
+\item 
+\mbox{\Hypertarget{classcmdQueue_a49315741cb4565cf8ba9edc6bbe7ad56}\label{classcmdQueue_a49315741cb4565cf8ba9edc6bbe7ad56}} 
+typedef const value\+\_\+type $\ast$ {\bfseries const\+\_\+pointer}
+\item 
+\mbox{\Hypertarget{classcmdQueue_a740146021593a3e16bca6a9c6245aaac}\label{classcmdQueue_a740146021593a3e16bca6a9c6245aaac}} 
+typedef value\+\_\+type \& {\bfseries reference}
+\item 
+\mbox{\Hypertarget{classcmdQueue_ae180eb4f1543ed1dd93c9d940eee2243}\label{classcmdQueue_ae180eb4f1543ed1dd93c9d940eee2243}} 
+typedef const value\+\_\+type \& {\bfseries const\+\_\+reference}
+\item 
+\mbox{\Hypertarget{classcmdQueue_a0b34eecf4218257791b7cfde956c4693}\label{classcmdQueue_a0b34eecf4218257791b7cfde956c4693}} 
+typedef size\+\_\+t {\bfseries size\+\_\+type}
+\item 
+\mbox{\Hypertarget{classcmdQueue_ad62478f31bf4a4c3f49ff7880f7f6ac2}\label{classcmdQueue_ad62478f31bf4a4c3f49ff7880f7f6ac2}} 
+typedef size\+\_\+t {\bfseries index\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcmdQueue_a22a29e60fe8d5fe99614e2d62ce44cc8}\label{classcmdQueue_a22a29e60fe8d5fe99614e2d62ce44cc8}} 
+{\bfseries cmd\+Queue} (size\+\_\+type size, const\+\_\+reference value)
+\item 
+void \mbox{\hyperlink{classcmdQueue_aadf23e9a7992937649be041f2dff0649}{Set\+Size}} (size\+\_\+type size, const\+\_\+reference value)
+\item 
+size\+\_\+type \mbox{\hyperlink{classcmdQueue_a5b20e8236f316838d79c7a0cf6cd089e}{Get\+Size}} (void) const
+\item 
+size\+\_\+type \mbox{\hyperlink{classcmdQueue_ae8cb270fa8376eb07232586d256230ad}{Get\+Available}} (void) const
+\item 
+bool \mbox{\hyperlink{classcmdQueue_a01c9efc30d4cd1d03b4825d4035e15d9}{Is\+Full}} (void) const
+\item 
+bool \mbox{\hyperlink{classcmdQueue_a05e030292bdcb52037b5311a47ecbbb9}{Is\+Empty}} (void) const
+\item 
+const\+\_\+pointer \mbox{\hyperlink{classcmdQueue_a49c35f031391a93b0ce86d30ac621b2d}{Put}} (const\+\_\+reference new\+Object)
+\item 
+pointer \mbox{\hyperlink{classcmdQueue_ac22faa5252cef195c6e1b8b23ddbb825}{Peek}} (void) const
+\item 
+const\+\_\+pointer \mbox{\hyperlink{classcmdQueue_a0764b3d2ce461ec1220fc66bae227820}{Get}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcmdQueue_a601ec1cf6e4ad1218c36d08578fb72a4}\label{classcmdQueue_a601ec1cf6e4ad1218c36d08578fb72a4}} 
+void {\bfseries Allocate} (size\+\_\+type size, const\+\_\+reference value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcmdQueue_a429b518a2c246ac30dde8e93b0ffcce4}\label{classcmdQueue_a429b518a2c246ac30dde8e93b0ffcce4}} 
+pointer {\bfseries Data}
+\item 
+\mbox{\Hypertarget{classcmdQueue_af0b8a3d340b8405d8387c97d94806cac}\label{classcmdQueue_af0b8a3d340b8405d8387c97d94806cac}} 
+atomic\+Pointer {\bfseries Head}
+\item 
+\mbox{\Hypertarget{classcmdQueue_a83403d4bd5d5c8e194de6f61cce3fabe}\label{classcmdQueue_a83403d4bd5d5c8e194de6f61cce3fabe}} 
+atomic\+Pointer {\bfseries Tail}
+\item 
+\mbox{\Hypertarget{classcmdQueue_ad293bbfc920fc27ec05bbb97ae739efa}\label{classcmdQueue_ad293bbfc920fc27ec05bbb97ae739efa}} 
+pointer {\bfseries Sentinel}
+\item 
+\mbox{\Hypertarget{classcmdQueue_a820cdf1928f8fb3f76fbfcd0b8aa7ff3}\label{classcmdQueue_a820cdf1928f8fb3f76fbfcd0b8aa7ff3}} 
+size\+\_\+type {\bfseries Size}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcmdQueue_a0764b3d2ce461ec1220fc66bae227820}\label{classcmdQueue_a0764b3d2ce461ec1220fc66bae227820}} 
+\index{cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}!Get@{Get}}
+\index{Get@{Get}!cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+const\+\_\+pointer \mbox{\hyperlink{classcmdQueue}{cmd\+Queue}}$<$ \+\_\+element\+Type $>$\+::Get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Pop the next object to be read from the queue. \begin{DoxyReturn}{Returns}
+Pointer to element just popped (use iterator instead?) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmdQueue_ae8cb270fa8376eb07232586d256230ad}\label{classcmdQueue_ae8cb270fa8376eb07232586d256230ad}} 
+\index{cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}!GetAvailable@{GetAvailable}}
+\index{GetAvailable@{GetAvailable}!cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{GetAvailable()}{GetAvailable()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+size\+\_\+type \mbox{\hyperlink{classcmdQueue}{cmd\+Queue}}$<$ \+\_\+element\+Type $>$\+::Get\+Available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns number of elements available in queue, i.\+e. the number of slots used. \mbox{\Hypertarget{classcmdQueue_a5b20e8236f316838d79c7a0cf6cd089e}\label{classcmdQueue_a5b20e8236f316838d79c7a0cf6cd089e}} 
+\index{cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+size\+\_\+type \mbox{\hyperlink{classcmdQueue}{cmd\+Queue}}$<$ \+\_\+element\+Type $>$\+::Get\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns size of queue. \mbox{\Hypertarget{classcmdQueue_a05e030292bdcb52037b5311a47ecbbb9}\label{classcmdQueue_a05e030292bdcb52037b5311a47ecbbb9}} 
+\index{cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}!IsEmpty@{IsEmpty}}
+\index{IsEmpty@{IsEmpty}!cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{IsEmpty()}{IsEmpty()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+bool \mbox{\hyperlink{classcmdQueue}{cmd\+Queue}}$<$ \+\_\+element\+Type $>$\+::Is\+Empty (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns true if queue is empty. \mbox{\Hypertarget{classcmdQueue_a01c9efc30d4cd1d03b4825d4035e15d9}\label{classcmdQueue_a01c9efc30d4cd1d03b4825d4035e15d9}} 
+\index{cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}!IsFull@{IsFull}}
+\index{IsFull@{IsFull}!cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{IsFull()}{IsFull()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+bool \mbox{\hyperlink{classcmdQueue}{cmd\+Queue}}$<$ \+\_\+element\+Type $>$\+::Is\+Full (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns true if queue is full. \mbox{\Hypertarget{classcmdQueue_ac22faa5252cef195c6e1b8b23ddbb825}\label{classcmdQueue_ac22faa5252cef195c6e1b8b23ddbb825}} 
+\index{cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}!Peek@{Peek}}
+\index{Peek@{Peek}!cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{Peek()}{Peek()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+pointer \mbox{\hyperlink{classcmdQueue}{cmd\+Queue}}$<$ \+\_\+element\+Type $>$\+::Peek (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get a pointer to the next object to be read, but do not remove the item from the queue. \begin{DoxyReturn}{Returns}
+Pointer to top element in queue (use iterator instead?) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmdQueue_a49c35f031391a93b0ce86d30ac621b2d}\label{classcmdQueue_a49c35f031391a93b0ce86d30ac621b2d}} 
+\index{cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}!Put@{Put}}
+\index{Put@{Put}!cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{Put()}{Put()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+const\+\_\+pointer \mbox{\hyperlink{classcmdQueue}{cmd\+Queue}}$<$ \+\_\+element\+Type $>$\+::Put (\begin{DoxyParamCaption}\item[{const\+\_\+reference}]{new\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy an object to the queue. 
+\begin{DoxyParams}{Parameters}
+{\em in} & reference to the object to be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to element in queue (use iterator instead?) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcmdQueue_aadf23e9a7992937649be041f2dff0649}\label{classcmdQueue_aadf23e9a7992937649be041f2dff0649}} 
+\index{cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!cmdQueue$<$ \_elementType $>$@{cmdQueue$<$ \_elementType $>$}}
+\doxysubsubsection{\texorpdfstring{SetSize()}{SetSize()}}
+{\footnotesize\ttfamily template$<$class \+\_\+element\+Type $>$ \\
+void \mbox{\hyperlink{classcmdQueue}{cmd\+Queue}}$<$ \+\_\+element\+Type $>$\+::Set\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+type}]{size,  }\item[{const\+\_\+reference}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the size of the queue (destructive, i.\+e. won\textquotesingle{}t preserve previously queued elements). 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{cmdQueue_8h}{cmd\+Queue.\+h}}\end{DoxyCompactItemize}

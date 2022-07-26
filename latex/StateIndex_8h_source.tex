@@ -1,0 +1,157 @@
+\hypertarget{StateIndex_8h_source}{}\doxysection{State\+Index.\+h}
+\label{StateIndex_8h_source}\index{src/StateIndex.h@{src/StateIndex.h}}
+\mbox{\hyperlink{StateIndex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef STATEINDEX\_H}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define STATEINDEX\_H}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{//\#include <cisstMultiTask/mtsGenericObject.h>}}
+\DoxyCodeLine{17 \textcolor{comment}{//\#include <cisstCommon/cmnSerializer.h>}}
+\DoxyCodeLine{18 \textcolor{comment}{//\#include <cisstCommon/cmnDeSerializer.h>}}
+\DoxyCodeLine{19 \textcolor{comment}{//\#include <cisstCommon/cmnGenericObjectProxy.h>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{//\#include <cisstMultiTask/mtsExport.h>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{comment}{// Comments from CISST library}}
+\DoxyCodeLine{25 \textcolor{comment}{//  The time indexing of state data is provided by the mtsStateIndex}}
+\DoxyCodeLine{26 \textcolor{comment}{//  class.}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{//  Each iteration of the Task Loop increments a tick counter, which is}}
+\DoxyCodeLine{29 \textcolor{comment}{//  stored as an unsigned long.  (mtsTimeTicks). A mtsStateIndex object}}
+\DoxyCodeLine{30 \textcolor{comment}{//  contains the following information: The tick value is stored in the}}
+\DoxyCodeLine{31 \textcolor{comment}{//  mtsStateIndex class to act as a data validity check. This is used to}}
+\DoxyCodeLine{32 \textcolor{comment}{//  ensure that the circular buffer has not wrapped around and}}
+\DoxyCodeLine{33 \textcolor{comment}{//  overwritten the index entry between the time that the mtsStateIndex}}
+\DoxyCodeLine{34 \textcolor{comment}{//  object was created and the time it was used.}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{class }\mbox{\hyperlink{classStateIndex}{StateIndex}}}
+\DoxyCodeLine{37 \{}
+\DoxyCodeLine{38  \textcolor{keyword}{public}:}
+\DoxyCodeLine{40     \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} \mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{TimeTicksType}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{comment}{//    /*! Base type */}}
+\DoxyCodeLine{43 \textcolor{comment}{//    typedef mtsGenericObject BaseType;}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45  \textcolor{keyword}{private}:}
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} \mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{TimeIndex}};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{51     \mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{TimeTicksType}} \mbox{\hyperlink{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}{TimeTicks}};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{int} \mbox{\hyperlink{classStateIndex_ae2575653ded277935ca3fe9542aaaff1}{BufferLength}};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{keyword}{public}:}
+\DoxyCodeLine{58     \textcolor{keyword}{inline} \mbox{\hyperlink{classStateIndex_abbe5c6a35755b207a480902e76c6e82b}{StateIndex}}():}
+\DoxyCodeLine{59         \mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{TimeIndex}}(0), \mbox{\hyperlink{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}{TimeTicks}}(0), \mbox{\hyperlink{classStateIndex_ae2575653ded277935ca3fe9542aaaff1}{BufferLength}}(0)}
+\DoxyCodeLine{60     \{\}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{63     \textcolor{keyword}{inline} \mbox{\hyperlink{classStateIndex_ac262d62f3a481d2c2d1741c2b490501e}{StateIndex}}(\textcolor{keywordtype}{double} timestamp, \textcolor{keywordtype}{int} index, \mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{TimeTicksType}} ticks, \textcolor{keywordtype}{int} \mbox{\hyperlink{classStateIndex_a6e80f36ffd541d0d8976761ef4f5708e}{Length}}):}
+\DoxyCodeLine{64         \textcolor{comment}{//BaseType(timestamp, false /* automatic timestamp */, true /* valid */),}}
+\DoxyCodeLine{65         \mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{TimeIndex}}(index), \mbox{\hyperlink{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}{TimeTicks}}(ticks), \mbox{\hyperlink{classStateIndex_ae2575653ded277935ca3fe9542aaaff1}{BufferLength}}(\mbox{\hyperlink{classStateIndex_a6e80f36ffd541d0d8976761ef4f5708e}{Length}})}
+\DoxyCodeLine{66     \{\}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{69     \mbox{\hyperlink{classStateIndex_a4e2ada386005daf7d20ca553a8b94987}{\string~StateIndex}}() \{\}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{int} \mbox{\hyperlink{classStateIndex_a6e80f36ffd541d0d8976761ef4f5708e}{Length}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{73         \textcolor{keywordflow}{return} \mbox{\hyperlink{classStateIndex_ae2575653ded277935ca3fe9542aaaff1}{BufferLength}};}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{comment}{//*! Return the index into the circular buffer.*/}}
+\DoxyCodeLine{77     \textcolor{keywordtype}{int} Index(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{78        \textcolor{keywordflow}{return} \mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{TimeIndex}};}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{82     \mbox{\hyperlink{classStateIndex_a8a71882c46347a108ece3a93fe152f38}{TimeTicksType}} \mbox{\hyperlink{classStateIndex_ab7652aa4b9c91cb8445b204423ae130a}{Ticks}}(\textcolor{keywordtype}{void})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return} \mbox{\hyperlink{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}{TimeTicks}};}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{90     \mbox{\hyperlink{classStateIndex}{StateIndex}}\& \mbox{\hyperlink{classStateIndex_ad088739544649e292749f7458ab82036}{operator-\/-\/}}() \{}
+\DoxyCodeLine{91         \mbox{\hyperlink{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}{TimeTicks}}-\/-\/;}
+\DoxyCodeLine{92         \mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{TimeIndex}}-\/-\/;}
+\DoxyCodeLine{93         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{TimeIndex}}<0) \{}
+\DoxyCodeLine{94             \mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{TimeIndex}} = \mbox{\hyperlink{classStateIndex_ae2575653ded277935ca3fe9542aaaff1}{BufferLength}}-\/1;}
+\DoxyCodeLine{95         \}}
+\DoxyCodeLine{96         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{97     \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{100     \mbox{\hyperlink{classStateIndex}{StateIndex}}\& \mbox{\hyperlink{classStateIndex_aae7f484329f267bb918e4ed3a200b021}{operator-\/=}}(\textcolor{keywordtype}{int} number) \{}
+\DoxyCodeLine{101         \mbox{\hyperlink{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}{TimeTicks}} -\/= number;}
+\DoxyCodeLine{102         \mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{TimeIndex}} = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}{TimeTicks}} \% \mbox{\hyperlink{classStateIndex_ae2575653ded277935ca3fe9542aaaff1}{BufferLength}});}
+\DoxyCodeLine{103         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{107     \mbox{\hyperlink{classStateIndex}{StateIndex}} \mbox{\hyperlink{classStateIndex_a51f9b3cf922dc0dc2ff8532b7695d074}{operator-\/}}(\textcolor{keywordtype}{int} number) \{}
+\DoxyCodeLine{108         \mbox{\hyperlink{classStateIndex}{StateIndex}} tmp = *\textcolor{keyword}{this};}
+\DoxyCodeLine{109         \textcolor{keywordflow}{return} (tmp -\/= number);}
+\DoxyCodeLine{110     \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{113     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateIndex_a307f5323380d90bae910d81fc892d9ea}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStateIndex}{StateIndex}} \& that)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{114         \textcolor{keywordflow}{return} (\mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{TimeIndex}} == that.\mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{TimeIndex}} \&\& \mbox{\hyperlink{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}{TimeTicks}} == that.\mbox{\hyperlink{classStateIndex_a1d8904866962d7d15416dc64bb52da4b}{TimeTicks}});}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{118     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStateIndex_af3e9600a15aff4b8e5a3c3e2d00ea031}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStateIndex}{StateIndex}} \& that)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{119         \textcolor{keywordflow}{return} !(*\textcolor{keyword}{this} == that);}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{123     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStateIndex_ac89273f0b174795f77950ae0332b8244}{ToStream}}(std::ostream \& outputStream)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{124         outputStream << \textcolor{stringliteral}{"{}Index = "{}} << \mbox{\hyperlink{classStateIndex_a293d99e85ee3ef5df8f1e681d5329330}{TimeIndex}} << \textcolor{stringliteral}{"{}, Ticks = "{}} << \mbox{\hyperlink{classStateIndex_ab7652aa4b9c91cb8445b204423ae130a}{Ticks}}() << \textcolor{stringliteral}{"{}, Length = "{}} << \mbox{\hyperlink{classStateIndex_ae2575653ded277935ca3fe9542aaaff1}{BufferLength}};}
+\DoxyCodeLine{125     \};}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{comment}{//    /*! Machine reabable text output */}}
+\DoxyCodeLine{128 \textcolor{comment}{//    virtual void ToStreamRaw(std::ostream \& outputStream, const char delimiter = ' ',}}
+\DoxyCodeLine{129 \textcolor{comment}{//                             bool headerOnly = false, const std::string \& headerPrefix = "{}"{}) const;}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{comment}{//    /*! Serialize the content of the object without any extra}}
+\DoxyCodeLine{132 \textcolor{comment}{//      information, i.e. no class type nor format version.  The}}
+\DoxyCodeLine{133 \textcolor{comment}{//      "{}receiver"{} is supposed to already know what to expect. */}}
+\DoxyCodeLine{134 \textcolor{comment}{//    void SerializeRaw(std::ostream \& outputStream) const;}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{comment}{//    /*! De-\/serialize the content of the object without any extra}}
+\DoxyCodeLine{137 \textcolor{comment}{//      information, i.e. no class type nor format version. */}}
+\DoxyCodeLine{138 \textcolor{comment}{//    virtual void DeSerializeRaw(std::istream \& inputStream);}}
+\DoxyCodeLine{139 \};}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{comment}{//void StateIndex::ToStream(std::ostream \& outputStream) const}}
+\DoxyCodeLine{143 \textcolor{comment}{//\{}}
+\DoxyCodeLine{144 \textcolor{comment}{//    outputStream << "{}Index = "{} << TimeIndex << "{}, Ticks = "{} << Ticks()}}
+\DoxyCodeLine{145 \textcolor{comment}{//                 << "{}, Length = "{} << BufferLength;}}
+\DoxyCodeLine{146 \textcolor{comment}{//\}}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{comment}{//void StateIndex::ToStreamRaw(std::ostream \& outputStream, const char delimiter,}}
+\DoxyCodeLine{149 \textcolor{comment}{//                                bool headerOnly, const std::string \& headerPrefix) const}}
+\DoxyCodeLine{150 \textcolor{comment}{//\{}}
+\DoxyCodeLine{151 \textcolor{comment}{//    mtsGenericObject::ToStreamRaw(outputStream, delimiter, headerOnly, headerPrefix);}}
+\DoxyCodeLine{152 \textcolor{comment}{//    outputStream << delimiter;}}
+\DoxyCodeLine{153 \textcolor{comment}{//    if (headerOnly) \{}}
+\DoxyCodeLine{154 \textcolor{comment}{//        outputStream << headerPrefix << "{}-\/timeindex"{} << delimiter}}
+\DoxyCodeLine{155 \textcolor{comment}{//                     << headerPrefix << "{}-\/timeticks"{} << delimiter}}
+\DoxyCodeLine{156 \textcolor{comment}{//                     << headerPrefix << "{}-\/bufferlength"{};}}
+\DoxyCodeLine{157 \textcolor{comment}{//    \} else \{}}
+\DoxyCodeLine{158 \textcolor{comment}{//        outputStream << this-\/>TimeIndex << delimiter}}
+\DoxyCodeLine{159 \textcolor{comment}{//                     << this-\/>TimeTicks << delimiter}}
+\DoxyCodeLine{160 \textcolor{comment}{//                     << this-\/>BufferLength;}}
+\DoxyCodeLine{161 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{162 \textcolor{comment}{//\}}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 \textcolor{comment}{//void mtsStateIndex::SerializeRaw(std::ostream \& outputStream) const}}
+\DoxyCodeLine{166 \textcolor{comment}{//\{}}
+\DoxyCodeLine{167 \textcolor{comment}{//    cmnSerializeRaw(outputStream, this-\/>TimeIndex);}}
+\DoxyCodeLine{168 \textcolor{comment}{//    cmnSerializeRaw(outputStream, this-\/>TimeTicks);}}
+\DoxyCodeLine{169 \textcolor{comment}{//    cmnSerializeRaw(outputStream, this-\/>BufferLength);}}
+\DoxyCodeLine{170 \textcolor{comment}{//\}}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 \textcolor{comment}{//void mtsStateIndex::DeSerializeRaw(std::istream \& inputStream)}}
+\DoxyCodeLine{174 \textcolor{comment}{//\{}}
+\DoxyCodeLine{175 \textcolor{comment}{//    cmnDeSerializeRaw(inputStream, this-\/>TimeIndex);}}
+\DoxyCodeLine{176 \textcolor{comment}{//    cmnDeSerializeRaw(inputStream, this-\/>TimeTicks);}}
+\DoxyCodeLine{177 \textcolor{comment}{//    cmnDeSerializeRaw(inputStream, this-\/>BufferLength);}}
+\DoxyCodeLine{178 \textcolor{comment}{//\}}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STATEINDEX\_H}}
+
+\end{DoxyCode}

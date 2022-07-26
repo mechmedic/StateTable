@@ -1,0 +1,118 @@
+\hypertarget{classTimeServer}{}\doxysection{Time\+Server Class Reference}
+\label{classTimeServer}\index{TimeServer@{TimeServer}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTimeServer_ac30689d3305fff4b2edd1fa1c5205ebf}{Time\+Server}} ()
+\item 
+\mbox{\hyperlink{classTimeServer_a70ec2ecb9899c0a71170ddc64b5d92b2}{$\sim$\+Time\+Server}} ()
+\item 
+void \mbox{\hyperlink{classTimeServer_a193dfb0e9be81618946ab2ffaa334e42}{Set\+Time\+Origin}} (void)
+\item 
+bool \mbox{\hyperlink{classTimeServer_a6d3a8de1f2db8c7640496c183be9cc8f}{Get\+Time\+Origin}} (\mbox{\hyperlink{structAbsoluteTime}{Absolute\+Time}} \&origin) const
+\item 
+double \mbox{\hyperlink{classTimeServer_a590429882efc4fd4cbeeac5f8045847a}{Get\+Relative\+Time}} (void) const
+\item 
+double \mbox{\hyperlink{classTimeServer_aafc39a8c618c87fe3ca9a6684d088379}{Get\+Absolute\+Time\+In\+Seconds}} (void) const
+\item 
+\mbox{\hyperlink{structAbsoluteTime}{Absolute\+Time}} \mbox{\hyperlink{classTimeServer_ac35c58600bc0f734b0426345787740ad}{Get\+Absolute\+Time}} (void) const
+\item 
+void \mbox{\hyperlink{classTimeServer_af1c64ff4e83838fb04da921c214d6887}{Relative\+To\+Absolute}} (double relative, \mbox{\hyperlink{structAbsoluteTime}{Absolute\+Time}} \&absolute) const
+\item 
+double \mbox{\hyperlink{classTimeServer_aad88d847c2a5828bc77cb80f88dc837f}{Absolute\+To\+Relative}} (const \mbox{\hyperlink{structAbsoluteTime}{Absolute\+Time}} \&absolute) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTimeServer_ac30689d3305fff4b2edd1fa1c5205ebf}\label{classTimeServer_ac30689d3305fff4b2edd1fa1c5205ebf}} 
+\index{TimeServer@{TimeServer}!TimeServer@{TimeServer}}
+\index{TimeServer@{TimeServer}!TimeServer@{TimeServer}}
+\doxysubsubsection{\texorpdfstring{TimeServer()}{TimeServer()}}
+{\footnotesize\ttfamily Time\+Server\+::\+Time\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor. \mbox{\Hypertarget{classTimeServer_a70ec2ecb9899c0a71170ddc64b5d92b2}\label{classTimeServer_a70ec2ecb9899c0a71170ddc64b5d92b2}} 
+\index{TimeServer@{TimeServer}!````~TimeServer@{$\sim$TimeServer}}
+\index{````~TimeServer@{$\sim$TimeServer}!TimeServer@{TimeServer}}
+\doxysubsubsection{\texorpdfstring{$\sim$TimeServer()}{~TimeServer()}}
+{\footnotesize\ttfamily Time\+Server\+::$\sim$\+Time\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTimeServer_aad88d847c2a5828bc77cb80f88dc837f}\label{classTimeServer_aad88d847c2a5828bc77cb80f88dc837f}} 
+\index{TimeServer@{TimeServer}!AbsoluteToRelative@{AbsoluteToRelative}}
+\index{AbsoluteToRelative@{AbsoluteToRelative}!TimeServer@{TimeServer}}
+\doxysubsubsection{\texorpdfstring{AbsoluteToRelative()}{AbsoluteToRelative()}}
+{\footnotesize\ttfamily double Time\+Server\+::\+Absolute\+To\+Relative (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAbsoluteTime}{Absolute\+Time}} \&}]{absolute }\end{DoxyParamCaption}) const}
+
+Convert the specified absolute time to a relative time by subtracting from the time origin and converting to seconds. 
+\begin{DoxyParams}{Parameters}
+{\em absolute} & The absolute time value (input) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The relative time value in seconds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTimeServer_ac35c58600bc0f734b0426345787740ad}\label{classTimeServer_ac35c58600bc0f734b0426345787740ad}} 
+\index{TimeServer@{TimeServer}!GetAbsoluteTime@{GetAbsoluteTime}}
+\index{GetAbsoluteTime@{GetAbsoluteTime}!TimeServer@{TimeServer}}
+\doxysubsubsection{\texorpdfstring{GetAbsoluteTime()}{GetAbsoluteTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAbsoluteTime}{Absolute\+Time}} Time\+Server\+::\+Get\+Absolute\+Time (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Get the absolute time since 1970. \begin{DoxyReturn}{Returns}
+The number of seconds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTimeServer_aafc39a8c618c87fe3ca9a6684d088379}\label{classTimeServer_aafc39a8c618c87fe3ca9a6684d088379}} 
+\index{TimeServer@{TimeServer}!GetAbsoluteTimeInSeconds@{GetAbsoluteTimeInSeconds}}
+\index{GetAbsoluteTimeInSeconds@{GetAbsoluteTimeInSeconds}!TimeServer@{TimeServer}}
+\doxysubsubsection{\texorpdfstring{GetAbsoluteTimeInSeconds()}{GetAbsoluteTimeInSeconds()}}
+{\footnotesize\ttfamily double Time\+Server\+::\+Get\+Absolute\+Time\+In\+Seconds (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Get the number of seconds that have elapsed since 1970. \begin{DoxyReturn}{Returns}
+The number of seconds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTimeServer_a590429882efc4fd4cbeeac5f8045847a}\label{classTimeServer_a590429882efc4fd4cbeeac5f8045847a}} 
+\index{TimeServer@{TimeServer}!GetRelativeTime@{GetRelativeTime}}
+\index{GetRelativeTime@{GetRelativeTime}!TimeServer@{TimeServer}}
+\doxysubsubsection{\texorpdfstring{GetRelativeTime()}{GetRelativeTime()}}
+{\footnotesize\ttfamily double Time\+Server\+::\+Get\+Relative\+Time (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Get the number of seconds that have elapsed since the time origin. \begin{DoxyReturn}{Returns}
+The number of seconds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTimeServer_a6d3a8de1f2db8c7640496c183be9cc8f}\label{classTimeServer_a6d3a8de1f2db8c7640496c183be9cc8f}} 
+\index{TimeServer@{TimeServer}!GetTimeOrigin@{GetTimeOrigin}}
+\index{GetTimeOrigin@{GetTimeOrigin}!TimeServer@{TimeServer}}
+\doxysubsubsection{\texorpdfstring{GetTimeOrigin()}{GetTimeOrigin()}}
+{\footnotesize\ttfamily bool Time\+Server\+::\+Get\+Time\+Origin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAbsoluteTime}{Absolute\+Time}} \&}]{origin }\end{DoxyParamCaption}) const}
+
+Get the time origin that is in effect for the relative time measurements. 
+\begin{DoxyParams}{Parameters}
+{\em origin} & Returns the current origin \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTimeServer_af1c64ff4e83838fb04da921c214d6887}\label{classTimeServer_af1c64ff4e83838fb04da921c214d6887}} 
+\index{TimeServer@{TimeServer}!RelativeToAbsolute@{RelativeToAbsolute}}
+\index{RelativeToAbsolute@{RelativeToAbsolute}!TimeServer@{TimeServer}}
+\doxysubsubsection{\texorpdfstring{RelativeToAbsolute()}{RelativeToAbsolute()}}
+{\footnotesize\ttfamily void Time\+Server\+::\+Relative\+To\+Absolute (\begin{DoxyParamCaption}\item[{double}]{relative,  }\item[{\mbox{\hyperlink{structAbsoluteTime}{Absolute\+Time}} \&}]{absolute }\end{DoxyParamCaption}) const}
+
+Convert the specified relative time (in seconds) to an absolute time by adding it to the time origin. 
+\begin{DoxyParams}{Parameters}
+{\em relative} & The relative time value in seconds (input) \\
+\hline
+{\em absolute} & The absolute time value (output) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTimeServer_a193dfb0e9be81618946ab2ffaa334e42}\label{classTimeServer_a193dfb0e9be81618946ab2ffaa334e42}} 
+\index{TimeServer@{TimeServer}!SetTimeOrigin@{SetTimeOrigin}}
+\index{SetTimeOrigin@{SetTimeOrigin}!TimeServer@{TimeServer}}
+\doxysubsubsection{\texorpdfstring{SetTimeOrigin()}{SetTimeOrigin()}}
+{\footnotesize\ttfamily void Time\+Server\+::\+Set\+Time\+Origin (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Set the time origin for the relative time measurements to \char`\"{}now\char`\"{}. Subsequent calls to Get\+Relative\+Time will return the number of seconds that have elaspsed since this call was made. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{TimeServer_8h}{Time\+Server.\+h}}\item 
+src/Time\+Server.\+cpp\end{DoxyCompactItemize}

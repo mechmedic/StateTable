@@ -1,0 +1,104 @@
+\hypertarget{classStateArrayBase}{}\doxysection{State\+Array\+Base Class Reference}
+\label{classStateArrayBase}\index{StateArrayBase@{StateArrayBase}}
+
+
+Inheritance diagram for State\+Array\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classStateArrayBase__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStateArrayBase_a4ee33d066955f7292bbe8bd0f96a7797}\label{classStateArrayBase_a4ee33d066955f7292bbe8bd0f96a7797}} 
+typedef size\+\_\+t {\bfseries index\+\_\+type}
+\item 
+\mbox{\Hypertarget{classStateArrayBase_af6a5af8ec663e7858bcb57891922401d}\label{classStateArrayBase_af6a5af8ec663e7858bcb57891922401d}} 
+typedef size\+\_\+t {\bfseries size\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classStateArrayBase_a74da43f42f06dff2a933f7500463be87}{$\sim$\+State\+Array\+Base}} (void)
+\item 
+virtual void \mbox{\hyperlink{classStateArrayBase_a24202e22e1468a1f3c6d9c5c5dc82d61}{Copy}} (index\+\_\+type index\+To, index\+\_\+type index\+From)=0
+\item 
+virtual bool \mbox{\hyperlink{classStateArrayBase_a0c5d89e7a2fae311fa05830532a9a34a}{Get}} (index\+\_\+type index, const std\+::any \&p\+Data) const =0
+\item 
+virtual bool \mbox{\hyperlink{classStateArrayBase_aad5869a28fc36164a4ee2f28a73e40dc}{Set}} (index\+\_\+type index, const std\+::any \&p\+Data)=0
+\item 
+\mbox{\Hypertarget{classStateArrayBase_a6cffd8d667fe09f471bb3814427b4078}\label{classStateArrayBase_a6cffd8d667fe09f471bb3814427b4078}} 
+virtual bool {\bfseries Set\+Data\+Size} (const size\+\_\+t size)=0
+\item 
+\mbox{\Hypertarget{classStateArrayBase_a9b5e5446eba9c5b923f162da315abecd}\label{classStateArrayBase_a9b5e5446eba9c5b923f162da315abecd}} 
+bool {\bfseries Set\+Size} (const size\+\_\+t size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStateArrayBase_aad79ad6de559f0fb0f502efed8d771cb}{State\+Array\+Base}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStateArrayBase_aad79ad6de559f0fb0f502efed8d771cb}\label{classStateArrayBase_aad79ad6de559f0fb0f502efed8d771cb}} 
+\index{StateArrayBase@{StateArrayBase}!StateArrayBase@{StateArrayBase}}
+\index{StateArrayBase@{StateArrayBase}!StateArrayBase@{StateArrayBase}}
+\doxysubsubsection{\texorpdfstring{StateArrayBase()}{StateArrayBase()}}
+{\footnotesize\ttfamily State\+Array\+Base\+::\+State\+Array\+Base (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Protected constructor. Does nothing. \mbox{\Hypertarget{classStateArrayBase_a74da43f42f06dff2a933f7500463be87}\label{classStateArrayBase_a74da43f42f06dff2a933f7500463be87}} 
+\index{StateArrayBase@{StateArrayBase}!````~StateArrayBase@{$\sim$StateArrayBase}}
+\index{````~StateArrayBase@{$\sim$StateArrayBase}!StateArrayBase@{StateArrayBase}}
+\doxysubsubsection{\texorpdfstring{$\sim$StateArrayBase()}{~StateArrayBase()}}
+{\footnotesize\ttfamily virtual State\+Array\+Base\+::$\sim$\+State\+Array\+Base (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Default destructor. Does nothing. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStateArrayBase_a24202e22e1468a1f3c6d9c5c5dc82d61}\label{classStateArrayBase_a24202e22e1468a1f3c6d9c5c5dc82d61}} 
+\index{StateArrayBase@{StateArrayBase}!Copy@{Copy}}
+\index{Copy@{Copy}!StateArrayBase@{StateArrayBase}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily virtual void State\+Array\+Base\+::\+Copy (\begin{DoxyParamCaption}\item[{index\+\_\+type}]{index\+To,  }\item[{index\+\_\+type}]{index\+From }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Overloaded subscript operator. $\ast$/ virtual std\+::any \& operator\mbox{[}$\,$\mbox{]}(index\+\_\+type index) = 0;
+
+/$\ast$! Overloaded subscript operator. $\ast$/ virtual const std\+::any \& operator\mbox{[}$\,$\mbox{]}(index\+\_\+type index) const = 0; \begin{DoxyVerb}virtual const std::string operator[](index_type index) const = 0;
+\end{DoxyVerb}
+
+
+/$\ast$! Create the array of data. This is currently unused. $\ast$/ virtual mts\+State\+Array\+Base $\ast$ Create(const mts\+Generic\+Object $\ast$ object\+Example, size\+\_\+type size) = 0; \begin{DoxyVerb}/*! Copy data from one index to another. 
+\end{DoxyVerb}
+ 
+
+Implemented in \mbox{\hyperlink{classStateArray_ae97663bf6a0db75916ce8662cc4467b0}{State\+Array$<$ \+\_\+element\+Type $>$}}.
+
+\mbox{\Hypertarget{classStateArrayBase_a0c5d89e7a2fae311fa05830532a9a34a}\label{classStateArrayBase_a0c5d89e7a2fae311fa05830532a9a34a}} 
+\index{StateArrayBase@{StateArrayBase}!Get@{Get}}
+\index{Get@{Get}!StateArrayBase@{StateArrayBase}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily virtual bool State\+Array\+Base\+::\+Get (\begin{DoxyParamCaption}\item[{index\+\_\+type}]{index,  }\item[{const std\+::any \&}]{p\+Data }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get data from array. 
+
+Implemented in \mbox{\hyperlink{classStateArray_ac9028ef136b47f2eb89eb3963a6505f0}{State\+Array$<$ \+\_\+element\+Type $>$}}.
+
+\mbox{\Hypertarget{classStateArrayBase_aad5869a28fc36164a4ee2f28a73e40dc}\label{classStateArrayBase_aad5869a28fc36164a4ee2f28a73e40dc}} 
+\index{StateArrayBase@{StateArrayBase}!Set@{Set}}
+\index{Set@{Set}!StateArrayBase@{StateArrayBase}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily virtual bool State\+Array\+Base\+::\+Set (\begin{DoxyParamCaption}\item[{index\+\_\+type}]{index,  }\item[{const std\+::any \&}]{p\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Set data in array. 
+
+Implemented in \mbox{\hyperlink{classStateArray_ac7bed0c52016dc3abbc1758190f51e09}{State\+Array$<$ \+\_\+element\+Type $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{StateArrayBase_8h}{State\+Array\+Base.\+h}}\end{DoxyCompactItemize}

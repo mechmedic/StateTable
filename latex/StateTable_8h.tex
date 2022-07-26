@@ -1,0 +1,58 @@
+\hypertarget{StateTable_8h}{}\doxysection{src/\+State\+Table.h File Reference}
+\label{StateTable_8h}\index{src/StateTable.h@{src/StateTable.h}}
+
+
+Header file for \textquotesingle{}\mbox{\hyperlink{classStateTable}{State\+Table}}\textquotesingle{} (State table) class. This class is based on \textquotesingle{}mts\+State\+Table\textquotesingle{} of the CISST library which is a table maintaining time history of state variables, and can be accessed in a thread-\/safe manner for multiple reader, single writer assuming that that pointer updates are atomic. Each component will own one \textquotesingle{}\mbox{\hyperlink{classStateTable}{State\+Table}}\textquotesingle{} that keeps record of its state Each column of a table is a State\+Variable and Each row is a time For example, \mbox{\hyperlink{classStateTable}{State\+Table}} of a sensor component Name \char`\"{}\+Tic\char`\"{} \char`\"{}\+Error\+Code\char`\"{} \char`\"{}\+ADCVal\char`\"{} \char`\"{}\+Flag\char`\"{} \+: State\+Vector\+Data\+Name 10 us 0x36 520 1 30 us 0x00 201 0 Each column is \char`\"{}\+State\+Vector\char`\"{} Each Row is vector of heterogeneous data type, implemented by using std\+::any Only one thread (usually the thread of a component that owns the table) should call \textquotesingle{}Advance\textquotesingle{} function which updates the writing pointer. Created \+: 2022.\+07.\+07 Chunwoo Kim (CKim) Last Updated \+: 2022.\+07.\+09 Chunwoo Kim (CKim) Contact Info \+: \href{mailto:cwkim@kist.re.kr}{\texttt{ cwkim@kist.\+re.\+kr}}.  
+
+
+{\ttfamily \#include \char`\"{}State\+Array.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}State\+Index.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Time\+Server.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$any$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for State\+Table.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{StateTable_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{StateTable_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classStateTable}{State\+Table}}
+\item 
+class \mbox{\hyperlink{classStateTable_1_1AccessorBase}{State\+Table\+::\+Accessor\+Base}}
+\item 
+class \mbox{\hyperlink{classStateTable_1_1Accessor}{State\+Table\+::\+Accessor$<$ \+\_\+element\+Type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{State\+Data\+Id}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for \textquotesingle{}\mbox{\hyperlink{classStateTable}{State\+Table}}\textquotesingle{} (State table) class. This class is based on \textquotesingle{}mts\+State\+Table\textquotesingle{} of the CISST library which is a table maintaining time history of state variables, and can be accessed in a thread-\/safe manner for multiple reader, single writer assuming that that pointer updates are atomic. Each component will own one \textquotesingle{}\mbox{\hyperlink{classStateTable}{State\+Table}}\textquotesingle{} that keeps record of its state Each column of a table is a State\+Variable and Each row is a time For example, \mbox{\hyperlink{classStateTable}{State\+Table}} of a sensor component Name \char`\"{}\+Tic\char`\"{} \char`\"{}\+Error\+Code\char`\"{} \char`\"{}\+ADCVal\char`\"{} \char`\"{}\+Flag\char`\"{} \+: State\+Vector\+Data\+Name 10 us 0x36 520 1 30 us 0x00 201 0 Each column is \char`\"{}\+State\+Vector\char`\"{} Each Row is vector of heterogeneous data type, implemented by using std\+::any Only one thread (usually the thread of a component that owns the table) should call \textquotesingle{}Advance\textquotesingle{} function which updates the writing pointer. Created \+: 2022.\+07.\+07 Chunwoo Kim (CKim) Last Updated \+: 2022.\+07.\+09 Chunwoo Kim (CKim) Contact Info \+: \href{mailto:cwkim@kist.re.kr}{\texttt{ cwkim@kist.\+re.\+kr}}. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}\label{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}} 
+\index{StateTable.h@{StateTable.h}!StateDataId@{StateDataId}}
+\index{StateDataId@{StateDataId}!StateTable.h@{StateTable.h}}
+\doxysubsubsection{\texorpdfstring{StateDataId}{StateDataId}}
+{\footnotesize\ttfamily typedef int \mbox{\hyperlink{StateTable_8h_a53369c3da6454a27ec1ad0ae48c07cfb}{State\+Data\+Id}}}
+
+State\+Data\+Id. Unique identifier for the columns of the State Data Table. Typedef\textquotesingle{}ed to an int 
