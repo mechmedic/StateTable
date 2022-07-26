@@ -111,7 +111,7 @@ public:
         return available;
     }
 
-
+    
     /*! Returns true if queue is full. */
     inline bool IsFull(void) const {
         pointer oneAfterHead = this->Head + 1;
