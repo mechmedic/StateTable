@@ -52,7 +52,7 @@ int main()
     // CKim - Read from the table. Use mtsXXX for data type.
     // First, obtain 'accessor' of the state table and then
     // use 'GetLatest' method of the accessor class
-    //StateTable::Accessor<int>* acc = dynamic_cast<StateTable::Accessor<int>*> (theTable.GetAccessorByName("Num"));
+    StateTable::Accessor<int>* acc = dynamic_cast<StateTable::Accessor<int>*> (theTable.GetAccessorByName("Num"));
     //StateIndex idxRead = theTable.GetIndexReader();
     int k = 0;
     int& kref = k;
